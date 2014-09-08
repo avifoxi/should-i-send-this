@@ -50,7 +50,7 @@ $( document ).ready(function() {
   // kwf.renderHighlighted();
 
   $("button").on("click", function() {
-    $(".compare-cons").removeClass('hidden');
+    $(".compare-modal").removeClass('hidden');
   })
 
   console.log('ready')
