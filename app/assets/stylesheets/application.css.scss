@@ -12,6 +12,7 @@
  *
  */
 
+
 @import "base/reset";
 @import "bourbon";
 @import "neat/settings";
@@ -22,6 +23,10 @@
 
 @import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
 @import "base/typography";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 
 @import "base/base";
 
