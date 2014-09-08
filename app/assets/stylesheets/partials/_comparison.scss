@@ -12,10 +12,15 @@
 
 }
 
-.compare-side {
+.compare-row {
+  display: block;
+}
+
+.compare-cell {
   // width: 45%;
+  // @include clearfix;
   @include span-columns(2 of 8);
-  position: relative;
+  // position: relative;
   display: inline-block;
   margin: 1.625em 0;
   padding: 20px;
@@ -26,13 +31,21 @@
 }
 
 .you-think{
-
+  float: left;
 }
 
 .we-think{
-
+  float: right;
 }
 
+.comp-arrow{
+  @include triangle(12px, gray, down);
+}
+
+.compare-clear{
+  @include clearfix;
+  clear: both;
+}
 
 
 

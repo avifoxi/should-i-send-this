@@ -1,23 +1,31 @@
-<%= @document.context %>
-<%= @concepts.first %>
+
+
 
 
 <div class="compare-modal">
 
-    <div class="you-think compare-side">
-      <p>You Think You're Writing About:</p>
-      <p></p>
-    </div>
+    <div class='compare-row'>
+      <div class="you-think compare-cell">
+        <p>You Think You're Writing About:</p>
+        <p><<%= @document.context %>/p>
+        <%= icon('pencil-square-o') %>
+      </div>
 
-    <div class="comparrow">
-      <%= icon('arrows-h') %>
-    </div>
+      <div class="comp-arrow compare-cell">
 
-    <div class="we-think compare-side">
-      <p>We Think You're Writing About:</p>
-      <p></p>
+      </div>
+
+      <div class="we-think compare-cell">
+        <p>We Think You're Writing About:</p>
+        <p><%= @concepts.first %></p>
+        <%= icon('pencil-square-o') %>
+      </div>
+      <div class="hidden">.</div>
     </div>
-    <%= link_to 'Make a New Version?',  %>
+    <hr>
+    <div class='compare-clear'>
+      <%= link_to 'Make a New Version?', new_document_version_path(@document) %>
+    </div>
 </div>
 
 
