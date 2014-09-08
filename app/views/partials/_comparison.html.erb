@@ -2,17 +2,18 @@
 
 
 
-<div class="compare-modal">
+<div class="compare-modal hidden">
 
     <div class='compare-row'>
       <div class="you-think compare-cell">
         <p>You Think You're Writing About:</p>
-        <p><<%= @document.context %>/p>
+        <p><%= @document.context %></p>
         <%= icon('pencil-square-o') %>
       </div>
 
       <div class="comp-arrow compare-cell">
-
+        But...<br>
+        <div class="arrow"><%= icon('exchange') %></div>
       </div>
 
       <div class="we-think compare-cell">
@@ -22,7 +23,7 @@
       </div>
       <div class="hidden">.</div>
     </div>
-    <hr>
+
     <div class='compare-clear'>
       <%= link_to 'Make a New Version?', new_document_version_path(@document) %>
     </div>

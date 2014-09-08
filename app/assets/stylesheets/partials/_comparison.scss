@@ -7,27 +7,20 @@
   top: 50%;
   position: fixed;
   z-index: 2;
-
-  height: 12em;
+  border-radius: 0.5em;
 
 }
 
-.compare-row {
-  display: block;
-}
 
 .compare-cell {
   // width: 45%;
   // @include clearfix;
-  @include span-columns(2 of 8);
+  @include span-columns(2.5 of 8);
   // position: relative;
   display: inline-block;
   margin: 1.625em 0;
   padding: 20px;
-  border: 1px solid #bbb;
-  border-top: 30px solid #F5F5F5;
   color: #555;
-  border-radius: 5px;
 }
 
 .you-think{
@@ -39,38 +32,17 @@
 }
 
 .comp-arrow{
-  @include triangle(12px, gray, down);
+  margin-left: 7.5%;
+  font-size: 3em;
+  .arrow{
+    font-size: 1.25em;
+  }
 }
 
 .compare-clear{
   @include clearfix;
   clear: both;
+  text-align: center;
 }
 
 
-
-.compare-cons {
-  display: inline-block;
-}
-
-.compare-context {
-  float: left;
-  width: 45%;
-  margin: 1.625em 0;
-  padding: 20px;
-  border: 1px solid #bbb;
-  border-top: 30px solid #F5F5F5;
-  color: #555;
-  border-radius: 5px;
-}
-
-.compare-concept {
-  float: right;
-  width: 45%;
-  margin: 1.625em 0;
-  padding: 20px;
-  border: 1px solid #bbb;
-  border-top: 30px solid #F5F5F5;
-  color: #555;
-  border-radius: 5px;
-}
