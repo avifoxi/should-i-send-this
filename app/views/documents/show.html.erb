@@ -30,16 +30,9 @@ Version History<br>
 <%= button_tag "Analysis", :id => "analysis" %><br>
 <br>
 
-<div class="compare-cons hidden">
-  <div class="compare-context">
-    <p>You Think You Wrote:</p>
-    <p><%= @document.context %></p>
-  </div>
-  <div class="compare-concept">
-    <p>Alchemy Thinks You're Writing About:</p>
-    <p><%= @concepts.first %></p>
-  </div>
-</div>
+
+<%= render partial: 'partials/comparison' %>
+
 <br>
 
 <%= link_to 'Comment On This Document', version_comment_path(@current_version) %>

@@ -1,0 +1,63 @@
+.compare-modal {
+  @include outer-container;
+  @include span-columns(6);
+
+  border: black solid 0.15em;
+  background-color: $main-bg;
+  top: 50%;
+  position: fixed;
+  z-index: 2;
+
+  height: 12em;
+
+}
+
+.compare-side {
+  // width: 45%;
+  @include span-columns(2 of 8);
+  position: relative;
+  display: inline-block;
+  margin: 1.625em 0;
+  padding: 20px;
+  border: 1px solid #bbb;
+  border-top: 30px solid #F5F5F5;
+  color: #555;
+  border-radius: 5px;
+}
+
+.you-think{
+
+}
+
+.we-think{
+
+}
+
+
+
+
+.compare-cons {
+  display: inline-block;
+}
+
+.compare-context {
+  float: left;
+  width: 45%;
+  margin: 1.625em 0;
+  padding: 20px;
+  border: 1px solid #bbb;
+  border-top: 30px solid #F5F5F5;
+  color: #555;
+  border-radius: 5px;
+}
+
+.compare-concept {
+  float: right;
+  width: 45%;
+  margin: 1.625em 0;
+  padding: 20px;
+  border: 1px solid #bbb;
+  border-top: 30px solid #F5F5F5;
+  color: #555;
+  border-radius: 5px;
+}
