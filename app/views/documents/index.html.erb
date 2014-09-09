@@ -1,6 +1,6 @@
 <% @documents.each do |document| %>
-  <p><%= link_to document.title, document_path(document) %> by <%= document.user.name %></p>
-  <p><%= document.context %></p>
-  <p><%=h truncate(document.versions.last.content, :length => 80) %></p>
+  <h2><%= link_to document.title, document_path(document) %> by <%= document.user.name %></h2>
+  <h3><%= document.context %></h3>
+  <h4><%=h truncate(document.versions.last.content, :length => 80) %></h4>
   <br>
 <% end %>

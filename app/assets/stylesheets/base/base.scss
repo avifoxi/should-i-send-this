@@ -10,6 +10,18 @@ body {
 		font-size: $xlarge-font;
 	}
 
+	h2 {
+		font-size: $large-font;
+	}
+
+	h3 {
+	 	font-size: $medium-font;
+	}
+
+	h4 {
+	 	font-size: $small-font;
+	}
+
 	.secondary-txt {
 		color: $text-lighter-grey;
 	}
@@ -38,19 +50,12 @@ body {
 		background-color: $warning-bg;
 		color: $warning-txt;
 	}
-	.font-large {
-		font-size: $large-font;
-	}
-	.font-medium {
-		font-size: $medium-font;
-	}
+	
 	.font-x-large {
 		font-size: $xlarge-font;
 		letter-spacing: $wide-letter-space;
 	}
-	.font-small {
-		font-size: $small-font;
-	}
+	
   .hidden {
     display: none;
     // visibility: hidden;
