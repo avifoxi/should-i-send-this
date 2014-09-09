@@ -1,6 +1,7 @@
 
 <% if @user == current_user %>
-  <h3>Welcome, <%= @user.name %>! </h3>
+  <h2>Welcome, <%= @user.name %>! </h2>
+  <hr>
   <%= link_to 'Settings', edit_user_registration_path %>
   <br>
 <% else %>
