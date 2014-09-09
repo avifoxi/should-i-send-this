@@ -38,25 +38,49 @@ KeywordFinder.prototype = {
 $( document ).ready(function() {
 
   // ON READY - GRAB KEYWORDS CONCEPTS SENTIMENT FROM VIEW
-  var kw = JSON.parse( $("#rawkeywords").text() );
-  var concepts = JSON.parse( $("#rawconcepts").text() );
-  var sentiment = JSON.parse( $("#rawsentiment").text() );
-  var content = $('#content').text();
+  // var kw = JSON.parse( $("#rawkeywords").text() );
+  // var concepts = JSON.parse( $("#rawconcepts").text() );
+  // var sentiment = JSON.parse( $("#rawsentiment").text() );
+  // var content = $('#content').text();
 
-  kwf = new KeywordFinder(content, kw);
+  // kwf = new KeywordFinder(content, kw);
 
-  kwf.wrapKeyWords();
+  // kwf.wrapKeyWords();
 
-  kwf.renderHighlighted();
+  // kwf.renderHighlighted();
 
+  $("button").on("click", function() {
+    compareTimedReveal();
+  })
+  $(".compare-modal").on('click', function(){
+    $(".compare-modal").fadeOut('slow');
+  })
+
+  console.log('ready')
 });
 
 
+function compareTimedReveal() {
+  $(".compare-modal").fadeIn(500, function(){
+    $(".compare-modal").removeClass('hidden');
+    iterativeReveal(300);
+    // $(".you-think").removeClass('compare-hide');
+    // $(".you-think").fadeIn('slow');
+    // $(".we-think").removeClass('compare-hide');
 
+  });
 
+}
 
+function iterativeReveal(time) {
+  console.log('iterating')
+  var elements = [ ".you-think", '.comp-arrow', '.we-think', '.compare-clear']
 
-
+  $.each(elements, function( i, value ) {
+    console.log(value)
+    setTimeout( function(){ $(elements[i]).removeClass('compare-hide') }, time * (1.25 * (i+1)) )
+  });
+}
 
 
 

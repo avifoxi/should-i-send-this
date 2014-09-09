@@ -1,0 +1,34 @@
+
+
+
+
+<div class="compare-modal hidden">
+
+    <div class='compare-row'>
+      <div class="you-think compare-cell compare-hide">
+        <p>You Think You're Writing About:</p>
+        <p><%= @document.context %></p>
+        <%= icon('pencil-square-o') %>
+      </div>
+
+      <div class="comp-arrow compare-cell compare-hide">
+        But...<br>
+        <div class="arrow"><%= icon('exchange') %></div>
+      </div>
+
+      <div class="we-think compare-cell compare-hide">
+        <p>We Think You're Writing About:</p>
+        <p><%= @concepts.first %></p>
+        <%= icon('pencil-square-o') %>
+      </div>
+      <div class="hidden">.</div>
+    </div>
+
+    <div class='compare-clear compare-hide'>
+      <%= link_to 'Make a New Version?', new_document_version_path(@document) %>
+    </div>
+</div>
+
+
+
+
