@@ -2,7 +2,9 @@
 <div id='version-control' ><%= icon('bars') %> </div>
 
 <aside class='control-aside hidden'>
-  Version History<br>
+  Document Versions:<br>
+
+  <%= select_tag "buttholes" %>
   <% @versions.each do |version| %>
     <p>
       <%= link_to "Version ##{version.version_number}", version_path(version) %>
