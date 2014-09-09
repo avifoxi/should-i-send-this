@@ -10,7 +10,6 @@
     <%= f.fields_for :versions do |v| %>
       <h2><%= v.label :content %><br></h2>
         <%= f.fields_for @version do |v| %>
-          <%= v.label :content %><br>
           <%= v.text_area :content %><br>
         <% end %>
     <% end %>
