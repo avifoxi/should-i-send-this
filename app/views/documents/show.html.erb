@@ -7,27 +7,21 @@
 
 <br><br>
 
-Version History<br>
-<% @versions.each do |version| %>
-  <p>
-    <%= link_to "Verison ##{version.version_number}", version_path(version) %>
-    <% if current_user == @document.user %>
-      <%= link_to '[delete version]', version, :method => :delete %>
-    <% end %>
-  <p>
-<% end %>
+<%= render partial: 'partials/doc_control_bar' %>
+
+
 <br>
 
 <%= @document.title %><br>
 <br>
 
-<p id="content"><%= @current_version.content %></p>
-<br>
 
-<p><%= add_highlight_spans(@current_version, @alchemist) %></p>
+<div class="version-content">
+  <%= add_highlight_spans(@current_version, @alchemist) %>
+</div>
 
 <hr>
-<%= button_tag "Analysis", :id => "analysis" %><br>
+
 <br>
 
 

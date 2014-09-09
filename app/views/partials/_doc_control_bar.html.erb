@@ -1,0 +1,11 @@
+Version History<br>
+<% @versions.each do |version| %>
+  <p>
+    <%= link_to "Version ##{version.version_number}", version_path(version) %>
+    <% if current_user == @document.user %>
+      <%= link_to '[delete version]', version, :method => :delete %>
+    <% end %>
+  <p>
+<% end %>
+
+<%= button_tag "Analysis", :id => "analysis" %><br>
