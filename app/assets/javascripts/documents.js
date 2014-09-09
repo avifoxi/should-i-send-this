@@ -29,12 +29,16 @@ KeywordFinder.prototype = {
 
 var View = function(elements){
   this.toggleButton = elements.toggleButton;
+  this.facadeButton = elements.facadeButton;
   this.docControlShowing = false;
 
   var _this = this
 
   this.toggleButton.click(function(){
     _this.toggleDocControl();
+  })
+  this.facadeButton.click(function() {
+    $('#landing-facade').fadeOut(1000)
   })
 }
 
@@ -49,6 +53,8 @@ View.prototype = {
     }
   }
 }
+
+// $('#facade-center').click(function(){ $('#landing-facade').fadeOut()})
 
 
 $( document ).ready(function() {
@@ -66,7 +72,8 @@ $( document ).ready(function() {
   })
 
   view = new View({
-    'toggleButton' : $('#version-control')
+    'toggleButton' : $('#version-control'),
+    'facadeButton' : $('#facade-center')
   })
 
   console.log('ready')
