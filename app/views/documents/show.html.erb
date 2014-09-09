@@ -10,10 +10,9 @@
 <%= render partial: 'partials/doc_control_bar' %>
 
 
-<br>
 
-<%= @document.title %><br>
-<br>
+<h2><%= @document.title %></h2><br>
+
 
 
 <div class="version-content">
@@ -21,6 +20,21 @@
 </div>
 
 <hr>
+
+<table class="compare-cons">
+  <tr>
+    <h3><th>You Think You Wrote:</th>
+    <th>And</th>
+    <th>Alchemy Thinks You're Writing About:</th></h3>
+  </tr>
+  <tr>
+    <td><h3><%= @document.context %></h3></td>
+    <td>  </td>
+    <td><%= @concepts.first %></td>
+  </tr>
+
+</table>
+
 
 <br>
 
@@ -36,7 +50,7 @@
 
 <% @comments.each do |comment| %>
   <p>
-    <small>by <%= comment.user.name %><br></small>
+    <h2>by <%= comment.user.name %><br></h2>
     <%= comment.body %>
   </p>
   <br>
