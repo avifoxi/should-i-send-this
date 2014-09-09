@@ -52,6 +52,9 @@ $( document ).ready(function() {
   $("button").on("click", function() {
     compareTimedReveal();
   })
+  $(".compare-modal").on('click', function(){
+    $(".compare-modal").fadeOut('slow');
+  })
 
   console.log('ready')
 });
@@ -60,7 +63,7 @@ $( document ).ready(function() {
 function compareTimedReveal() {
   $(".compare-modal").fadeIn(500, function(){
     $(".compare-modal").removeClass('hidden');
-    iterativeReveal(500);
+    iterativeReveal(300);
     // $(".you-think").removeClass('compare-hide');
     // $(".you-think").fadeIn('slow');
     // $(".we-think").removeClass('compare-hide');
@@ -75,18 +78,8 @@ function iterativeReveal(time) {
 
   $.each(elements, function( i, value ) {
     console.log(value)
-    setTimeout( function(){ $(elements[i]).fadeIn('slow') }, time * (i+1))
-
-    // $(elements[i]).fadeIn( time * (i+1));
+    setTimeout( function(){ $(elements[i]).removeClass('compare-hide') }, time * (1.25 * (i+1)) )
   });
-
-
-  // for (var i=0; i<4; i++) {
-  //   console.log(elements[i])
-
-  //   console.log( time * (i+1))
-  //   // $(elements[i]).fadeIn( time * (i+1));
-  // }
 }
 
 
