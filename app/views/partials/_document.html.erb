@@ -22,6 +22,11 @@
   <% end %>
 
   <h4><%= document.context %></h4>
-  <h4>Currently Private? => <%= document.privacy %></h4>
+  <h4>Currently Private? => </h4>
+  <% if document.privacy %>
+    <%= icon('lock') %>
+  <% else %>
+    <%= icon('unlock') %>
+  <% end %>
   <p><%=h truncate(document.versions.last.content, :length => 80) %></p>
 

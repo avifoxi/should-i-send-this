@@ -1,9 +1,15 @@
 body {
 	font-family: $primary-font;
-	color: $text-dark-grey;
+	color: $black;
 	font-size: $base-font-size;
 	letter-spacing: $base-letter-space;
 	line-height: $base-line-height;
+
+  background: url("/landing.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
 	h1{
 		font-family: $logo-font;
