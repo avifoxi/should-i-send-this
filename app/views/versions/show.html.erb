@@ -1,7 +1,7 @@
-<h2>Version #<%= @version.version_number %></h2>
-<br>
+<h2>Document View</h2>
+<h3>version #<%= @version.version_number %></h3>
 
-<br><br>
+<br>
 
 <%= render partial: 'partials/doc_control_bar' %>
 
@@ -26,11 +26,12 @@
 
 
 <br>
-
+<h2>Comments</h2>
+<br>
 <% @comments.each do |comment| %>
   <p>
-    <h2>by <%= comment.user.name %><br></h2>
-    <%= comment.body %>
+    <h4>by: <%= comment.user.name %><br></h4>
+    <h3><%= comment.body %></h3>
   </p>
   <br>
 <% end %>

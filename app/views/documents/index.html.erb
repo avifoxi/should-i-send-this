@@ -1,3 +1,4 @@
+<h2>Document List</h2><br>
 <% @documents.each do |document| %>
   <h2><%= link_to document.title, document_path(document) %></h2>
   <h3>By <%= document.user.name %></h3>
