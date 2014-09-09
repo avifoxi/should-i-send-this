@@ -60,15 +60,12 @@ View.prototype = {
   },
   getSentVal : function(){
     this.sentVal = parseFloat($('#sentVal').html() );
-    var butt = parseFloat($('#sentVal').html() );
-    console.log(butt)
   },
   callibrateSentiment : function(){
     var _this = this;
     _this.getSentVal();
     var sentVal = _this.sentVal;
     var colorVars = _this.sentimentGrader( sentVal);
-    console.log(colorVars)
     var bgParams = "rgba(0, 0, 0, 0) -webkit-linear-gradient(left, red " + colorVars.negVal + "%, green " + colorVars.posVal + "%) repeat scroll 0% 0% / auto padding-box border-box";
     $('.sentiment-gradient-bar').css('background', bgParams);
 
@@ -111,5 +108,5 @@ $( document ).ready(function() {
   })
 
   view.callibrateSentiment();
-  console.log('ready')
+
 });
