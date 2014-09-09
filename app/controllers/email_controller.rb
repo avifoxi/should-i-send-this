@@ -30,7 +30,7 @@ class EmailController < ApplicationController
 
     UserMailer.email(sender, response).deliver
 
-    redirect_to :root
+    redirect_to :root, status: 200
   end
 end
 
