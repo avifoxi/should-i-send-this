@@ -1,11 +1,12 @@
 <div class="compare-modal hidden ">
 
-    <div class="sentiment-gradient-bar"><%= @alchemist.sentiment %></div>
+    <div class="sentiment-gradient-bar"></div>
+    <div id="sentVal" class="hidden"><%= @alchemist.sentiment %></div>
     <div class='compare-row'>
       <div class="you-think compare-cell compare-hide">
         <p>You Think You Said:</p>
         <p><%= @document.context %></p>
-        <%= icon('pencil-square-o') %>
+
       </div>
 
       <div class="comp-arrow compare-cell compare-hide">
@@ -16,7 +17,7 @@
       <div class="we-think compare-cell compare-hide">
         <p><em>We</em> Think You Said:</p>
         <p><%= @concepts.first %></p>
-        <%= icon('pencil-square-o') %>
+
       </div>
       <div class="hidden">.</div>
     </div>

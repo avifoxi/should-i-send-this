@@ -1,36 +1,8 @@
-var KeywordFinder = function(content, keywordsArray) {
-  this.content = content;
-  this.keywordsArray = keywordsArray;
-  this.spanClasses;
-}
-
-KeywordFinder.prototype = {
-  wrapKWinSpan : function( keyword ) {
-    var reg = new RegExp('\\b(' + keyword + '(?:e(?=s))?s?)\\b', "gi");
-    var result = this.content.replace(reg, "<span class='highlight'>$1</span>")
-    this.content = result;
-  },
-  wrapKeyWords : function() {
-    var _this = this;
-    var kws = _this.keywordsArray;
-    for (var i = 0; i < kws.length; i++){
-      _this.wrapKWinSpan( kws[i] )
-    }
-  },
-  prepSpanClasses : function() {
-
-  },
-  renderHighlighted : function() {
-    var _this = this;
-    $('#content').html(_this.content);
-  }
-}
-
-
 var View = function(elements){
   this.toggleButton = elements.toggleButton;
   this.createCommentButt = elements.createCommentButt;
   this.feedbackPointer = elements.feedbackPointer;
+  this.sentVal = 0;
 
   this.docControlShowing = false;
   this.newCommentShowing = false;
@@ -50,8 +22,8 @@ var View = function(elements){
   this.feedbackPointer.click(function() {
     _this.compareTimedReveal();
   })
-
 }
+
 
 View.prototype = {
   toggleDocControl : function() {
@@ -85,17 +57,33 @@ View.prototype = {
     $.each(elements, function( i, value ) {
       setTimeout( function(){ $(elements[i]).removeClass('compare-hide') }, time * (1.25 * (i+1)) )
     });
+  },
+  getSentVal : function(){
+    this.sentVal = parseFloat($('#sentVal').html() );
+  },
+  callibrateSentiment : function(){
+    var _this = this;
+    _this.getSentVal();
+    var sentVal = _this.sentVal;
+    var colorVars = _this.sentimentGrader( sentVal);
+    var bgParams = "rgba(0, 0, 0, 0) -webkit-linear-gradient(left, red " + colorVars.negVal + "%, green " + colorVars.posVal + "%) repeat scroll 0% 0% / auto padding-box border-box";
+    $('.sentiment-gradient-bar').css('background', bgParams);
 
+  },
+  sentimentGrader : function(sentVal) {
+    var posVal;
+    var negVal;
+    if (sentVal < 0) {
+      posVal = 100;
+      negVal = Math.abs(sentVal) * 100 ;
+    } else {
+      negVal = 0;
+      posVal = ( 1 - sentVal ) * 100;
+    }
+    return {'negVal': negVal, 'posVal': posVal}
   }
 }
 
-
-function iterativeReveal(time) {
-  console.log('iterating')
-
-}
-
-// $('#facade-center').click(function(){ $('#landing-facade').fadeOut()})
 
 
 $( document ).ready(function() {
@@ -119,19 +107,6 @@ $( document ).ready(function() {
     'feedbackPointer' : $('.pointer')
   })
 
-  console.log('ready')
+  view.callibrateSentiment();
+
 });
-
-
-
-
-function toggleDocControl() {
-
-}
-
-
-
-
-
-
-
