@@ -40,6 +40,7 @@ gem 'spring',        group: :development
 
 gem 'bourbon'
 gem 'neat'
+gem 'font-awesome-sass', '~> 4.2.0'
 
 group :development, :test do
   gem 'selenium-webdriver'

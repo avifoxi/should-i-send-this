@@ -12,6 +12,7 @@
  *
  */
 
+
 @import "base/reset";
 @import "bourbon";
 @import "neat/settings";
@@ -24,8 +25,14 @@
 @import url(http://fonts.googleapis.com/css?family=Arvo);
 @import "base/typography";
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
 @import "base/base";
 
 @import "partials/header";
 @import "base/styleguide";
 @import "versions";
+
+@import "partials/comparison"
