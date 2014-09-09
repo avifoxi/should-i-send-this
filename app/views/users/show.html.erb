@@ -1,10 +1,13 @@
 
 <% if @user == current_user %>
-  <h2>Welcome <%= @user.name %> </h2>
+  <h3>Welcome, <%= @user.name %>! </h3>
+  <%= link_to 'Settings', edit_user_registration_path %>
+  <br>
 <% else %>
   <h2><%= @user.name %>'s Profile Page</h2>
 <% end %>
+<br>
 
-<h3>Your Documents:</h3>
+<h2>Your Documents:</h2>
 
 <%= render partial: 'partials/document', collection: @documents %>
