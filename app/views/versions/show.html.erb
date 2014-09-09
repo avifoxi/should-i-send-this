@@ -1,8 +1,8 @@
 <h2><%= @document.title %></h2>
-<button class="feedback">Get Feedback?</button>
+<h3>Get Feedback?  <span class='pointer'><%= icon('forward') %></span></h3>
 <br>
 
-<br><br>
+<%= render partial: 'partials/comparison' %>
 
 <%= render partial: 'partials/doc_control_bar' %>
 
@@ -21,7 +21,7 @@
 
 
 
-<%= render partial: 'partials/comparison' %>
+
 
 <br>
 

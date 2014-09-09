@@ -1,10 +1,10 @@
 .compare-modal {
   @include outer-container;
-  @include span-columns(6);
-
+  @include span-columns(8);
+  @include shift(-1);
   border: black solid 0.15em;
   background-color: $main-bg;
-  top: 50%;
+  top: 20%;
   position: fixed;
   z-index: 2;
   border-radius: 0.5em;

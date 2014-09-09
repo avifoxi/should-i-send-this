@@ -1,8 +1,8 @@
-<div class="compare-modal hidden">
+<div class="compare-modal hidden oval-thought">
 
     <div class='compare-row'>
       <div class="you-think compare-cell compare-hide">
-        <p>You Think You're Writing About:</p>
+        <p>You Think You Said:</p>
         <p><%= @document.context %></p>
         <%= icon('pencil-square-o') %>
       </div>
@@ -13,7 +13,7 @@
       </div>
 
       <div class="we-think compare-cell compare-hide">
-        <p>We Think You're Writing About:</p>
+        <p><em>We</em> Think You Said:</p>
         <p><%= @concepts.first %></p>
         <%= icon('pencil-square-o') %>
       </div>

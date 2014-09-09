@@ -29,8 +29,9 @@ KeywordFinder.prototype = {
 
 var View = function(elements){
   this.toggleButton = elements.toggleButton;
-  this.facadeButton = elements.facadeButton;
   this.createCommentButt = elements.createCommentButt;
+  this.feedbackPointer = elements.feedbackPointer;
+
   this.docControlShowing = false;
   this.newCommentShowing = false;
 
@@ -39,13 +40,15 @@ var View = function(elements){
   this.toggleButton.click(function(){
     _this.toggleDocControl();
   })
-  this.facadeButton.click(function() {
-    $('#landing-facade').fadeOut(1000)
-  })
+
 
   this.createCommentButt.click(function(e){
     e.preventDefault();
     _this.toggleCommentBox();
+  })
+
+  this.feedbackPointer.click(function() {
+    console.log('butt')
   })
 
 }
@@ -69,35 +72,14 @@ View.prototype = {
     } else {
       $('.comment-aside').fadeOut('slow');
     }
+  },
+  compareTimedReveal : function() {
+    $(".compare-modal").fadeIn(500, function(){
+      $(".compare-modal").removeClass('hidden');
+      iterativeReveal(300);
+    });
   }
 }
-
-// $('#facade-center').click(function(){ $('#landing-facade').fadeOut()})
-
-
-$( document ).ready(function() {
-
-
-  $("button").on("click", function() {
-    compareTimedReveal();
-  })
-  $(".compare-modal").on('click', function(){
-    $(".compare-modal").fadeOut('slow');
-  })
-
-  $('#version-control').click(function(){
-    toggleDocControl();
-  })
-
-  view = new View({
-    'toggleButton' : $('#version-control'),
-    'facadeButton' : $('#facade-center'),
-    'createCommentButt' : $('.create-comment')
-  })
-
-  console.log('ready')
-});
-
 
 function compareTimedReveal() {
   $(".compare-modal").fadeIn(500, function(){
@@ -120,6 +102,36 @@ function iterativeReveal(time) {
     setTimeout( function(){ $(elements[i]).removeClass('compare-hide') }, time * (1.25 * (i+1)) )
   });
 }
+
+// $('#facade-center').click(function(){ $('#landing-facade').fadeOut()})
+
+
+$( document ).ready(function() {
+
+
+  $("button").on("click", function() {
+    compareTimedReveal();
+  })
+  $(".compare-modal").on('click', function(){
+    $(".compare-modal").fadeOut('slow');
+  })
+
+  $('#version-control').click(function(){
+    toggleDocControl();
+  })
+
+  view = new View({
+    'toggleButton' : $('#version-control'),
+    'facadeButton' : $('#facade-center'),
+    'createCommentButt' : $('.create-comment'),
+    'feedbackPointer' : $('.pointer')
+  })
+
+  console.log('ready')
+});
+
+
+
 
 function toggleDocControl() {
 
