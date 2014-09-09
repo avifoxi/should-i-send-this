@@ -13,8 +13,10 @@ body {
 }
 
 .main-content {
+  position: relative;
   background-color: $main-bg;
   margin-top: 2em;
+
   @include span-columns(8);
   @include shift(2);
   border: 1px solid #bbb;

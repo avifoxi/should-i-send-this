@@ -26,34 +26,47 @@ KeywordFinder.prototype = {
   }
 }
 
-// var fakeContent = 'church churches store stores beer beers  I went to the store.  I bought milk, and cereal, and thought about the state of the world, also there was a cat. I like stores. I like cats. Dont like Milk.'
 
+var View = function(elements){
+  this.toggleButton = elements.toggleButton;
+  this.docControlShowing = false;
 
-// var fakeKWarray = [ 'I', 'store', 'cat', 'milk', 'state of']
+  var _this = this
 
-// TODO - specfic clases for KW priority
-// var spanClasses = { 'I': "top", 'store': 'middle', 'cat': 'low'}
+  this.toggleButton.click(function(){
+    _this.toggleDocControl();
+  })
+}
+
+View.prototype = {
+  toggleDocControl : function() {
+    var _this = this;
+    _this.docControlShowing = !_this.docControlShowing;
+    if (_this.docControlShowing) {
+      $('.control-aside').fadeIn(700);
+    } else {
+      $('.control-aside').fadeOut('slow');
+    }
+  }
+}
 
 
 $( document ).ready(function() {
 
-  // ON READY - GRAB KEYWORDS CONCEPTS SENTIMENT FROM VIEW
-  // var kw = JSON.parse( $("#rawkeywords").text() );
-  // var concepts = JSON.parse( $("#rawconcepts").text() );
-  // var sentiment = JSON.parse( $("#rawsentiment").text() );
-  // var content = $('#content').text();
-
-  // kwf = new KeywordFinder(content, kw);
-
-  // kwf.wrapKeyWords();
-
-  // kwf.renderHighlighted();
 
   $("button").on("click", function() {
     compareTimedReveal();
   })
   $(".compare-modal").on('click', function(){
     $(".compare-modal").fadeOut('slow');
+  })
+
+  $('#version-control').click(function(){
+    toggleDocControl();
+  })
+
+  view = new View({
+    'toggleButton' : $('#version-control')
   })
 
   console.log('ready')
@@ -82,6 +95,9 @@ function iterativeReveal(time) {
   });
 }
 
+function toggleDocControl() {
+
+}
 
 
 
