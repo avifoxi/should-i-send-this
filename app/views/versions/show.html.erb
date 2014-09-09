@@ -27,12 +27,6 @@
 
 <br>
 
-<% @comments.each do |comment| %>
-  <p>
-    <h2>by <%= comment.user.name %><br></h2>
-    <%= comment.body %>
-  </p>
-  <br>
-<% end %>
+<%= render partial: 'partials/comments' %>
 
 
