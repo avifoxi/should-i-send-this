@@ -65,7 +65,7 @@ class FakeAlchemist
   def initialize
     @keywords = ["hot dogs", "salty", "buns", "mention", "thoughts", "MIND", "buns."]
     @concepts = ["2000 albums"]
-    @sentiment = -0.393271
+    @sentiment = 0.5
   end
 
 end

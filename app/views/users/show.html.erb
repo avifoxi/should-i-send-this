@@ -1,3 +1,4 @@
+<body class="inner">
 
 <% if @user == current_user %>
   <h2>Welcome, <%= @user.name %>! </h2>
@@ -12,3 +13,5 @@
 <h2>Your Documents:</h2>
 
 <%= render partial: 'partials/document', collection: @documents %>
+
+</body>

@@ -1,8 +1,16 @@
-<h2><%= @document.title %></h2>
-<button class="feedback">Get Feedback?</button>
+<body class="inner">
+
+<h2>Document View</h2>
+<h3>version #<%= @version.version_number %></h3>
+
 <br>
 
-<br><br>
+<h2><%= @document.title %></h2>
+<h3>Get Feedback?  <span class='pointer'><%= icon('forward') %></span></h3>
+<br>
+
+<%= render partial: 'partials/comparison' %>
+
 
 <%= render partial: 'partials/doc_control_bar' %>
 
@@ -21,7 +29,7 @@
 
 
 
-<%= render partial: 'partials/comparison' %>
+
 
 <br>
 
@@ -31,3 +39,4 @@
 <%= render partial: 'partials/comments' %>
 
 
+</body>

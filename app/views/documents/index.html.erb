@@ -1,11 +1,18 @@
+<body class="inner">
+
 <h2>Give Feedback</h2>
 <hr>
 <br>
 
+
 <% @documents.each do |document| %>
-  <h2><%= link_to document.title, document_path(document) %></h2>
-  <h3>by <%= document.user.name %></h3>
-  <h3><%= document.context %></h3>
-  <p><%= h truncate(document.versions.last.content, :length => 80) %></p>
-  <br>
+  <div class="document-summary">
+
+    <h3><%= link_to document.title, document_path(document) %></h3>
+    <p class="document-header"><%= document.user.name %></p>
+    <p><%= h truncate(document.versions.last.content, :length => 240) %></p>
+
+  </div>
 <% end %>
+
+</body>
