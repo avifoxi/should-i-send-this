@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe DocumentsController, :type => :controller do
+
+
+
   context "#index" do
+    render_views
     it "assigns documents to a variable" do
       get :index
       expect(:documents).not_to be_nil
