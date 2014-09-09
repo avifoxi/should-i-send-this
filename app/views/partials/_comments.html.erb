@@ -1,11 +1,12 @@
-<div class="comment">
+<% @comments.each do |comment| %>
 
-  <% @comments.each do |comment| %>
-    <p>
-      <h2>by <%= comment.user.name %><br></h2>
-      <%= comment.body %>
-    </p>
-    <br>
-  <% end %>
+  <div class="comment">
+
+    <p class="comment-header"><%= comment.user.name %>:</p>
+    <p><%= comment.body %></p>
+      
+  </div>
+
+<% end %>
     
-</div>
+
