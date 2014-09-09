@@ -7,6 +7,9 @@
 
 <br><br>
 
+<h2><%= @document.title %></h2><br>
+
+
 Version History<br>
 <% @versions.each do |version| %>
   <p>
@@ -18,7 +21,6 @@ Version History<br>
 <% end %>
 <br>
 
-<%= @document.title %><br>
 <br>
 
 <p id="content"><%= @current_version.content %></p>
@@ -27,6 +29,19 @@ Version History<br>
 <p><%= add_highlight_spans(@current_version, @alchemist) %></p>
 
 <hr>
+<table class="compare-cons">
+  <tr>
+    <h3><th>You Think You Wrote:</th>
+    <th>And</th>
+    <th>Alchemy Thinks You're Writing About:</th></h3>
+  </tr>
+  <tr>
+    <td><h3><%= @document.context %></h3></td>
+    <td>  </td>
+    <td><%= @concepts.first %></td>
+  </tr>
+
+</table>
 <%= button_tag "Analysis", :id => "analysis" %><br>
 <br>
 
@@ -42,7 +57,7 @@ Version History<br>
 
 <% @comments.each do |comment| %>
   <p>
-    <small>by <%= comment.user.name %><br></small>
+    <h2>by <%= comment.user.name %><br></h2>
     <%= comment.body %>
   </p>
   <br>
