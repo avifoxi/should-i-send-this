@@ -1,3 +1,4 @@
+
 15.times do
   User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8))
 end
@@ -233,6 +234,7 @@ Despite his ambivalent role, Josephus was an eyewitness to history, and his writ
   comment = Version.all.sample.comments.create(body: Faker::Hacker.say_something_smart)
   User.all.sample.comments << comment
 end
+
 
 
 
