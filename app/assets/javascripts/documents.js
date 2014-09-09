@@ -48,7 +48,7 @@ var View = function(elements){
   })
 
   this.feedbackPointer.click(function() {
-    console.log('butt')
+    _this.compareTimedReveal();
   })
 
 }
@@ -74,33 +74,25 @@ View.prototype = {
     }
   },
   compareTimedReveal : function() {
+    var _this = this;
     $(".compare-modal").fadeIn(500, function(){
       $(".compare-modal").removeClass('hidden');
-      iterativeReveal(300);
+      _this.iterativeReveal(300);
     });
+  },
+  iterativeReveal : function(time) {
+    var elements = [ ".you-think", '.comp-arrow', '.we-think', '.compare-clear']
+    $.each(elements, function( i, value ) {
+      setTimeout( function(){ $(elements[i]).removeClass('compare-hide') }, time * (1.25 * (i+1)) )
+    });
+
   }
 }
 
-function compareTimedReveal() {
-  $(".compare-modal").fadeIn(500, function(){
-    $(".compare-modal").removeClass('hidden');
-    iterativeReveal(300);
-    // $(".you-think").removeClass('compare-hide');
-    // $(".you-think").fadeIn('slow');
-    // $(".we-think").removeClass('compare-hide');
-
-  });
-
-}
 
 function iterativeReveal(time) {
   console.log('iterating')
-  var elements = [ ".you-think", '.comp-arrow', '.we-think', '.compare-clear']
 
-  $.each(elements, function( i, value ) {
-    console.log(value)
-    setTimeout( function(){ $(elements[i]).removeClass('compare-hide') }, time * (1.25 * (i+1)) )
-  });
 }
 
 // $('#facade-center').click(function(){ $('#landing-facade').fadeOut()})
