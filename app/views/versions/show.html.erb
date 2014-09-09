@@ -1,8 +1,15 @@
+
+<h2>Document View</h2>
+<h3>version #<%= @version.version_number %></h3>
+
+<br>
+
 <h2><%= @document.title %></h2>
 <h3>Get Feedback?  <span class='pointer'><%= icon('forward') %></span></h3>
 <br>
 
 <%= render partial: 'partials/comparison' %>
+
 
 <%= render partial: 'partials/doc_control_bar' %>
 
@@ -27,7 +34,19 @@
 
 
 <br>
+<<<<<<< HEAD
+<h2>Comments</h2>
+<br>
+<% @comments.each do |comment| %>
+  <p>
+    <h4>by: <%= comment.user.name %><br></h4>
+    <h3><%= comment.body %></h3>
+  </p>
+  <br>
+<% end %>
+=======
 
 <%= render partial: 'partials/comments' %>
+>>>>>>> 812332c1631ebe62ecfa75061c494668d135a14a
 
 
