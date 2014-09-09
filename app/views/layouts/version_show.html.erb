@@ -12,17 +12,19 @@
 
   <%= render partial: 'shared/header' %>
 
-  <div class="devise warning-bg">
+  <div class="devise">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </div>
 
-  <div class="main-content">
-		<%= yield %>
-	</div>
+  <div class="version-wrapper">
+
+      <%= yield %>
+
+  </div>
 
 
-  <%= render partial: 'shared/footer' %>
+
 
 </body>
 </html>
