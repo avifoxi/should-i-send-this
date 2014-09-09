@@ -33,24 +33,9 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    @document = Document.find(params[:id])
-
-    @versions = @document.versions
-
-    @current_version = @document.versions.order(version_number: :desc).first
-    @version = @current_version  # Restful use of version resource
-
-    @comments = @version.comments.order(created_at: :desc)
-    @comment = @version.comments.build
-
-    # @alchemist = AlchemyData.new(@current_version.content)
-
-    # UNCOMMENT BELOW FOR NON-API CALL DEVELOPER MODE
-    @alchemist = FakeAlchemist.new
-
-    @keywords = @alchemist.keywords
-    @concepts = @alchemist.concepts
-    @sentiment = @alchemist.sentiment
+    document = Document.find(params[:id])
+    version = document.versions.last
+    redirect_to version_path(version)
   end
 
   def update

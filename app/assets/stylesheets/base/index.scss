@@ -6,4 +6,34 @@ html {
     -o-background-size: cover;
     background-size: cover;
   }
+  #landing-facade{
+    position: fixed;
+    top:0;
+    z-index: 2;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+
+    #facade-center{
+      width: 15em;
+      padding: 3em;
+      // height: 15em;
+      position: absolute;
+      left: 50%;
+      top: 60%;
+      margin-left: -150px;
+      margin-top: -150px;
+      text-align: center;
+      border: black 0.15em solid;
+      border-radius: 0.5em;
+      transition: background-color 0.5s ease;
+
+      &:hover{
+        background-color: $info-bg;
+      }
+
+    }
+  }
+
 }
+

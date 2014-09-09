@@ -10,6 +10,7 @@ body {
 		font-size: $xlarge-font;
 	}
 
+
 	h2 {
 		font-size: $large-font;
 	}
@@ -50,12 +51,12 @@ body {
 		background-color: $warning-bg;
 		color: $warning-txt;
 	}
-	
+
 	.font-x-large {
 		font-size: $xlarge-font;
 		letter-spacing: $wide-letter-space;
 	}
-	
+
   .hidden {
     display: none;
     // visibility: hidden;
