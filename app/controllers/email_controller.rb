@@ -6,27 +6,31 @@ class EmailController < ApplicationController
     sender = EmailParser.sender(params)
     email_body = EmailParser.content(params)
 
-    response = "Hello and thank you for using Should I Send This?"
-    response << "\n\n"
+    response = "<h1>Hello and thank you for using... <strong>Should I Send This?</strong></h1>"
 
     alchemist = AlchemyData.new(email_body)
 
     if alchemist
       sentiment = (alchemist.sentiment*100).floor
+      concepts = alchemist.concepts
+      keywords = alchemist.keywords
 
       if sentiment > 0
-        response << "Your email is #{sentiment}% positive.  If you are happy with this, please send!"
+        response << "<h2>Your email is #{sentiment}% <span style='color:#00FF00;'>positive</span>.</h2>"
       else
-        response << "Your email is #{sentiment.abs}% negative.  Please consider a revision!"
+        response << "<h2>Your email is #{sentiment.abs}% <span style='color:#FF0000;'>negative</span>.</h2>"
       end
+
+      response << "<h2>Your main concept is: '#{concepts.first}'</h2>"
+
     else
-      response << "Should I Send This? ...is down for maintenance. Try again later!"
+      response << "<h2>Should I Send This? ...is down for maintenance. Try again later!</h2>"
     end
 
-    response << "\n\n\n\n"
-    response << "Below is the content of your email:"
-    response << "\n\n"
+    response << "<h3>Below is the content of your email:</h3>"
+    response << "<p>"
     response << email_body
+    response << "</p>"
 
     UserMailer.email(sender, response).deliver
 
