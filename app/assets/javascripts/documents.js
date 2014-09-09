@@ -26,38 +26,104 @@ KeywordFinder.prototype = {
   }
 }
 
-// var fakeContent = 'church churches store stores beer beers  I went to the store.  I bought milk, and cereal, and thought about the state of the world, also there was a cat. I like stores. I like cats. Dont like Milk.'
 
+var View = function(elements){
+  this.toggleButton = elements.toggleButton;
+  this.facadeButton = elements.facadeButton;
+  this.createCommentButt = elements.createCommentButt;
+  this.docControlShowing = false;
+  this.newCommentShowing = false;
 
-// var fakeKWarray = [ 'I', 'store', 'cat', 'milk', 'state of']
+  var _this = this
 
-// TODO - specfic clases for KW priority
-// var spanClasses = { 'I': "top", 'store': 'middle', 'cat': 'low'}
+  this.toggleButton.click(function(){
+    _this.toggleDocControl();
+  })
+  this.facadeButton.click(function() {
+    $('#landing-facade').fadeOut(1000)
+  })
+
+  this.createCommentButt.click(function(e){
+    e.preventDefault();
+    _this.toggleCommentBox();
+  })
+
+}
+
+View.prototype = {
+  toggleDocControl : function() {
+    var _this = this;
+    _this.docControlShowing = !_this.docControlShowing;
+    if (_this.docControlShowing) {
+      $('.control-aside').fadeIn(700);
+    } else {
+      $('.control-aside').fadeOut('slow');
+    }
+  },
+  toggleCommentBox : function() {
+    var _this = this;
+    var _this = this;
+    _this.newCommentShowing = !_this.newCommentShowing;
+    if (_this.newCommentShowing) {
+      $('.comment-aside').fadeIn(700);
+    } else {
+      $('.comment-aside').fadeOut('slow');
+    }
+  }
+}
+
+// $('#facade-center').click(function(){ $('#landing-facade').fadeOut()})
 
 
 $( document ).ready(function() {
 
-  // ON READY - GRAB KEYWORDS CONCEPTS SENTIMENT FROM VIEW
-  var kw = JSON.parse( $("#rawkeywords").text() );
-  var concepts = JSON.parse( $("#rawconcepts").text() );
-  var sentiment = JSON.parse( $("#rawsentiment").text() );
-  var content = $('#content').text();
 
-  kwf = new KeywordFinder(content, kw);
+  $("button").on("click", function() {
+    compareTimedReveal();
+  })
+  $(".compare-modal").on('click', function(){
+    $(".compare-modal").fadeOut('slow');
+  })
 
-  kwf.wrapKeyWords();
+  $('#version-control').click(function(){
+    toggleDocControl();
+  })
 
-  kwf.renderHighlighted();
+  view = new View({
+    'toggleButton' : $('#version-control'),
+    'facadeButton' : $('#facade-center'),
+    'createCommentButt' : $('.create-comment')
+  })
 
+  console.log('ready')
 });
 
 
+function compareTimedReveal() {
+  $(".compare-modal").fadeIn(500, function(){
+    $(".compare-modal").removeClass('hidden');
+    iterativeReveal(300);
+    // $(".you-think").removeClass('compare-hide');
+    // $(".you-think").fadeIn('slow');
+    // $(".we-think").removeClass('compare-hide');
 
+  });
 
+}
 
+function iterativeReveal(time) {
+  console.log('iterating')
+  var elements = [ ".you-think", '.comp-arrow', '.we-think', '.compare-clear']
 
+  $.each(elements, function( i, value ) {
+    console.log(value)
+    setTimeout( function(){ $(elements[i]).removeClass('compare-hide') }, time * (1.25 * (i+1)) )
+  });
+}
 
+function toggleDocControl() {
 
+}
 
 
 

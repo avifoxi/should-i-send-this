@@ -4,21 +4,23 @@
   <title>ShoudISendThis</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'
 </head>
 <body>
 
   <%= render partial: 'shared/header' %>
 
-  <div class="devise">
+  <div class="devise warning-bg">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </div>
 
-		<div class="main-content">
-			<%= yield %>
-		</div>
+  <div class="main-content">
+		<%= yield %>
+	</div>
+
 
   <%= render partial: 'shared/footer' %>
 

@@ -40,8 +40,10 @@ gem 'spring',        group: :development
 
 gem 'bourbon'
 gem 'neat'
+gem 'font-awesome-sass', '~> 4.2.0'
 
 group :development, :test do
+  gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers'
@@ -54,5 +56,9 @@ gem 'faker'
 
 gem 'devise'
 
+gem 'ruby-gmail'
+gem 'mail'
 
+gem 'twilio-ruby'
 
+gem 'jquery-turbolinks'

@@ -47,4 +47,10 @@ RSpec.configure do |config|
 
   # include capybara
   config.include Capybara::DSL
+
+  config.include Devise::TestHelpers, :type => :controller
+
 end
+
+
+

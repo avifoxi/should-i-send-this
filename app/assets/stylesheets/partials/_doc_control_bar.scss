@@ -1,0 +1,31 @@
+.control-aside {
+  // clear: both;
+  right: 0;
+  top: 18%;
+  position: fixed;
+  background-color: $main-bg;
+
+  width: 20%;
+  padding: 1em;
+}
+
+.comment-aside {
+  left: 0;
+  top: 18%;
+  position: fixed;
+  background-color: $main-bg;
+
+  width: 20%;
+  padding: 1em;
+}
+
+
+#version-control {
+  // position: absolute;
+  margin-top: 0;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  &:hover{
+    background-color: $info-bg;
+  }
+}

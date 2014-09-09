@@ -1,20 +1,27 @@
 class DocumentsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
-    @documents = Document.all.order(created_at: :desc)
+    @documents = Document.where(privacy: false).order(created_at: :desc)
   end
 
   def create
-    user = current_user
+    @document = Document.new(document_params)
+    @version = Version.new(version_params)
 
-    document = Document.new(document_params)
-    document.user = user
-    document.save
+    unless @document.valid?
+      flash[:notice] = 'Error'
+      render 'new' and return
+    end
 
-    document.versions.create(version_params)
-
-    redirect_to document_path(document)
+    if version_params_complete
+      current_user.documents << @document
+      @document.versions << @version
+      redirect_to document_path(@document)
+    else
+      flash[:notice] = 'Error'
+      render 'new'
+    end
   end
 
   def new
@@ -26,31 +33,28 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    @document = Document.find(params[:id])
-
-    @current_version = @document.versions.order(version_number: :desc).first
-    @version = @current_version  # Restful use of version resource
-
-    @comments = @version.comments.order(created_at: :desc)
-    @comment = @version.comments.build
-
-    # @alchemist = AlchemyData.new(@current_version.content)
-    # UNCOMMENT BELOW FOR NON-API CALL DEVELOPER MODE
-    @alchemist = FakeAlchemist.new
-
-    @keywords = @alchemist.keywords
-    @concepts = @alchemist.concepts
-    @sentiment = @alchemist.sentiment
+    document = Document.find(params[:id])
+    version = document.versions.last
+    redirect_to version_path(version)
   end
 
   def update
     document = Document.find(params[:id])
-    document.versions.create(version_params)
 
-    redirect_to document_path(document)
+    if params[:document][:version]
+      document.versions.create(version_params)
+      redirect_to document_path(document) and return
+    end
+
+    document.update(privacy: params[:document][:privacy] == '1' )
+    redirect_to user_path(current_user)
   end
 
   def destroy
+    @document = Document.find(params[:id])
+    @document.destroy
+
+    redirect_to user_path(current_user)
   end
 
   private
@@ -61,12 +65,21 @@ class DocumentsController < ApplicationController
   def document_params
     title = params[:document][:title]
     context = params[:document][:context]
-    {title: title, context: context}
+    privacy = ( params[:document][:privacy] == '1' )
+    {title: title, context: context, privacy: privacy }
   end
 
   def version_params
-    content = params[:document][:versions][:content]
+    content = params[:document][:version][:content]
     {content: content}
+  end
+
+  def doc_params_complete
+    (document_params[:title] != '') && (document_params[:context] != '') && (document_params[:privacy] != nil)
+  end
+
+  def version_params_complete
+    version_params[:content] != ''
   end
 
 end

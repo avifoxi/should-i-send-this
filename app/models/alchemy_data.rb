@@ -7,10 +7,17 @@ class AlchemyData
     @keywords = []
     @concepts = []
     @sentiment = 0
+    self.retrieve_from_api
+  end
+
+  def retrieve_from_api
     get_keywords
     get_concepts
     get_sentiment
   end
+
+
+  private
 
   def get_keywords
     response = @alchemyapi.keywords('text', @content, { 'sentiment'=>1 })
@@ -41,7 +48,7 @@ end
 # alchemy_object.concepts
 #    => returns array of concepts in descending order of relevance
 # alchemy_object.sentiment
-#    => returns sentiment as a float between 0 and 1
+#    => returns sentiment as a float between -1 and 1
 
 
 
