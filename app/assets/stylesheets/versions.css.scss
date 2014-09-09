@@ -1,36 +1,54 @@
-.highlight {
-  background-color: $info-bg ;
-  color: $info-txt;
+.highlight-high {
+  background-color: $info-bg + 10 ;
+  color: $info-txt - 80;
   padding: 0.125em;
   border-radius: 10px;
+  font-size: 1.15em;
 }
+
+.highlight-medium {
+  background-color: $info-bg + 13 ;
+  color: $info-txt - 70;
+  padding: 0.125em;
+  border-radius: 10px;
+  font-size: 1.10em;
+}
+
+.highlight-low {
+  background-color: $info-bg + 17 ;
+  color: $info-txt - 60;
+  padding: 0.125em;
+  border-radius: 10px;
+  font-size: 1.05em;
+}
+
 
 // $highlight
 // $info-txt
 // $info-bg
 
-.compare-cons {
-  display: inline-block;
-}
+// .compare-cons {
+//   display: inline-block;
+// }
 
-.compare-context {
-  float: left;
-  width: 45%;
-  margin: 1.625em 0;
-  padding: 20px;
-  border: 1px solid #bbb;
-  border-top: 30px solid #F5F5F5;
-  color: #555;
-  border-radius: 5px;
-}
+// .compare-context {
+//   float: left;
+//   width: 45%;
+//   margin: 1.625em 0;
+//   padding: 20px;
+//   border: 1px solid #bbb;
+//   border-top: 30px solid #F5F5F5;
+//   color: #555;
+//   border-radius: 5px;
+// }
 
-.compare-concept {
-  float: right;
-  width: 45%;
-  margin: 1.625em 0;
-  padding: 20px;
-  border: 1px solid #bbb;
-  border-top: 30px solid #F5F5F5;
-  color: #555;
-  border-radius: 5px;
-}
+// .compare-concept {
+//   float: right;
+//   width: 45%;
+//   margin: 1.625em 0;
+//   padding: 20px;
+//   border: 1px solid #bbb;
+//   border-top: 30px solid #F5F5F5;
+//   color: #555;
+//   border-radius: 5px;
+// }
