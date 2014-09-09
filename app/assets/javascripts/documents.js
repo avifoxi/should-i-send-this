@@ -50,18 +50,44 @@ $( document ).ready(function() {
   // kwf.renderHighlighted();
 
   $("button").on("click", function() {
-    $(".compare-modal").removeClass('hidden');
+    compareTimedReveal();
   })
 
   console.log('ready')
 });
 
 
+function compareTimedReveal() {
+  $(".compare-modal").fadeIn(500, function(){
+    $(".compare-modal").removeClass('hidden');
+    iterativeReveal(500);
+    // $(".you-think").removeClass('compare-hide');
+    // $(".you-think").fadeIn('slow');
+    // $(".we-think").removeClass('compare-hide');
+
+  });
+
+}
+
+function iterativeReveal(time) {
+  console.log('iterating')
+  var elements = [ ".you-think", '.comp-arrow', '.we-think', '.compare-clear']
+
+  $.each(elements, function( i, value ) {
+    console.log(value)
+    setTimeout( function(){ $(elements[i]).fadeIn('slow') }, time * (i+1))
+
+    // $(elements[i]).fadeIn( time * (i+1));
+  });
 
 
+  // for (var i=0; i<4; i++) {
+  //   console.log(elements[i])
 
-
-
+  //   console.log( time * (i+1))
+  //   // $(elements[i]).fadeIn( time * (i+1));
+  // }
+}
 
 
 
