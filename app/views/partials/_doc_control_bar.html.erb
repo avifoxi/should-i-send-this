@@ -15,6 +15,8 @@
   <% end %>
 
   <%= button_tag "Analysis", :id => "analysis" %><br>
+
+
   <br><%= link_to 'Comment On This Document', version_comment_path(@version), :class => 'create-comment' %>
   <% if current_user == @document.user %>
     <br><%= render partial: 'shared/new_version' %>
