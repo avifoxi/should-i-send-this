@@ -29,8 +29,9 @@ KeywordFinder.prototype = {
 
 var View = function(elements){
   this.toggleButton = elements.toggleButton;
-  this.facadeButton = elements.facadeButton;
   this.createCommentButt = elements.createCommentButt;
+  this.feedbackPointer = elements.feedbackPointer;
+
   this.docControlShowing = false;
   this.newCommentShowing = false;
 
@@ -39,13 +40,15 @@ var View = function(elements){
   this.toggleButton.click(function(){
     _this.toggleDocControl();
   })
-  this.facadeButton.click(function() {
-    $('#landing-facade').fadeOut(1000)
-  })
+
 
   this.createCommentButt.click(function(e){
     e.preventDefault();
     _this.toggleCommentBox();
+  })
+
+  this.feedbackPointer.click(function() {
+    _this.compareTimedReveal();
   })
 
 }
@@ -69,7 +72,27 @@ View.prototype = {
     } else {
       $('.comment-aside').fadeOut('slow');
     }
+  },
+  compareTimedReveal : function() {
+    var _this = this;
+    $(".compare-modal").fadeIn(500, function(){
+      $(".compare-modal").removeClass('hidden');
+      _this.iterativeReveal(300);
+    });
+  },
+  iterativeReveal : function(time) {
+    var elements = [ ".you-think", '.comp-arrow', '.we-think', '.compare-clear']
+    $.each(elements, function( i, value ) {
+      setTimeout( function(){ $(elements[i]).removeClass('compare-hide') }, time * (1.25 * (i+1)) )
+    });
+
   }
+}
+
+
+function iterativeReveal(time) {
+  console.log('iterating')
+
 }
 
 // $('#facade-center').click(function(){ $('#landing-facade').fadeOut()})
@@ -92,34 +115,15 @@ $( document ).ready(function() {
   view = new View({
     'toggleButton' : $('#version-control'),
     'facadeButton' : $('#facade-center'),
-    'createCommentButt' : $('.create-comment')
+    'createCommentButt' : $('.create-comment'),
+    'feedbackPointer' : $('.pointer')
   })
 
   console.log('ready')
 });
 
 
-function compareTimedReveal() {
-  $(".compare-modal").fadeIn(500, function(){
-    $(".compare-modal").removeClass('hidden');
-    iterativeReveal(300);
-    // $(".you-think").removeClass('compare-hide');
-    // $(".you-think").fadeIn('slow');
-    // $(".we-think").removeClass('compare-hide');
 
-  });
-
-}
-
-function iterativeReveal(time) {
-  console.log('iterating')
-  var elements = [ ".you-think", '.comp-arrow', '.we-think', '.compare-clear']
-
-  $.each(elements, function( i, value ) {
-    console.log(value)
-    setTimeout( function(){ $(elements[i]).removeClass('compare-hide') }, time * (1.25 * (i+1)) )
-  });
-}
 
 function toggleDocControl() {
 

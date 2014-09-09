@@ -25,3 +25,48 @@
 .version-content {
 
 }
+
+h3 .pointer {
+  font-size: 1.5em;
+
+  &:hover{
+    color: $info-txt;
+    transition-property: background-color, color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+  }
+}
+
+.sentiment-gradient-bar{
+  margin: 0 auto;
+  width: 100%;
+  background: -webkit-linear-gradient(0deg,green, red);
+
+  opacity: 0.5;
+  // background: linear-gradient(0deg, red,green);
+  // @include background(linear-gradient(red, green) );
+  // width: 12em;
+  height: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

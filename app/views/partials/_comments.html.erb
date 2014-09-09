@@ -1,0 +1,12 @@
+<% @comments.each do |comment| %>
+
+  <div class="comment">
+
+    <p class="comment-header"><%= comment.user.name %>:</p>
+    <p><%= comment.body %></p>
+      
+  </div>
+
+<% end %>
+    
+

@@ -1,14 +1,22 @@
+
 <h2>Document View</h2>
 <h3>version #<%= @version.version_number %></h3>
 
 <br>
+
+<h2><%= @document.title %></h2>
+<h3>Get Feedback?  <span class='pointer'><%= icon('forward') %></span></h3>
+<br>
+
+<%= render partial: 'partials/comparison' %>
+
 
 <%= render partial: 'partials/doc_control_bar' %>
 
 <hr>
 
 
-<h2><%= @document.title %></h2><br>
+<h3>Version #<%= @version.version_number %></h3>
 
 
 
@@ -20,12 +28,13 @@
 
 
 
-<%= render partial: 'partials/comparison' %>
-
-<br>
 
 
 <br>
+
+
+<br>
+<<<<<<< HEAD
 <h2>Comments</h2>
 <br>
 <% @comments.each do |comment| %>
@@ -35,5 +44,9 @@
   </p>
   <br>
 <% end %>
+=======
+
+<%= render partial: 'partials/comments' %>
+>>>>>>> 812332c1631ebe62ecfa75061c494668d135a14a
 
 
