@@ -9,6 +9,17 @@
   padding: 1em;
 }
 
+.comment-aside {
+  left: 0;
+  top: 18%;
+  position: fixed;
+  background-color: $main-bg;
+
+  width: 20%;
+  padding: 1em;
+}
+
+
 #version-control {
   // position: absolute;
   margin-top: 0;

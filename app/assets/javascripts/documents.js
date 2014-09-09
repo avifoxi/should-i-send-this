@@ -30,7 +30,9 @@ KeywordFinder.prototype = {
 var View = function(elements){
   this.toggleButton = elements.toggleButton;
   this.facadeButton = elements.facadeButton;
+  this.createCommentButt = elements.createCommentButt;
   this.docControlShowing = false;
+  this.newCommentShowing = false;
 
   var _this = this
 
@@ -40,6 +42,12 @@ var View = function(elements){
   this.facadeButton.click(function() {
     $('#landing-facade').fadeOut(1000)
   })
+
+  this.createCommentButt.click(function(e){
+    e.preventDefault();
+    _this.toggleCommentBox();
+  })
+
 }
 
 View.prototype = {
@@ -50,6 +58,16 @@ View.prototype = {
       $('.control-aside').fadeIn(700);
     } else {
       $('.control-aside').fadeOut('slow');
+    }
+  },
+  toggleCommentBox : function() {
+    var _this = this;
+    var _this = this;
+    _this.newCommentShowing = !_this.newCommentShowing;
+    if (_this.newCommentShowing) {
+      $('.comment-aside').fadeIn(700);
+    } else {
+      $('.comment-aside').fadeOut('slow');
     }
   }
 }
@@ -73,7 +91,8 @@ $( document ).ready(function() {
 
   view = new View({
     'toggleButton' : $('#version-control'),
-    'facadeButton' : $('#facade-center')
+    'facadeButton' : $('#facade-center'),
+    'createCommentButt' : $('.create-comment')
   })
 
   console.log('ready')
