@@ -2,7 +2,7 @@ class DocumentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @documents = Document.where(privacy: false).order(created_at: :desc)
+    @documents = Document.publicly_available.order(created_at: :desc)
   end
 
   def create
