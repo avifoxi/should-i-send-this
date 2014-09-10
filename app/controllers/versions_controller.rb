@@ -27,7 +27,11 @@ class VersionsController < ApplicationController
 
     # @alchemist = AlchemyData.new(@version.content)
     # UNCOMMENT BELOW FOR NON-API CALL DEVELOPER MODE
-    @alchemist = FakeAlchemist.new
+    @alchemist = ErrorAlchemist.new
+
+    unless @alchemist
+      @alchemist = ErrorAlchemist.new
+    end
 
     @concepts = @alchemist.concepts
   end
@@ -59,14 +63,4 @@ class VersionsController < ApplicationController
   end
 end
 
-# BELOW IS A DEVELOPMENT OBJECT TO AVOID REPEATED API CALLS
-class FakeAlchemist
-  attr_reader :keywords, :concepts, :sentiment
 
-  def initialize
-    @keywords = ["hot dogs", "salty", "buns", "mention", "thoughts", "MIND", "buns."]
-    @concepts = ["2000 albums"]
-    @sentiment = -0.7
-  end
-
-end
