@@ -10,10 +10,10 @@
     <i class="fa fa-unlock-alt"></i>
   <% end %>
 </h3>
-<br>
 <%= form_for @document do |f| %>
   <%= f.fields_for @version do |v| %>
     (most recent version included for your convenience)<br>
+    <br>
     <%= v.text_area :content, :value => "#{@most_recent_version.content}" %><br>
   <% end %>
 
