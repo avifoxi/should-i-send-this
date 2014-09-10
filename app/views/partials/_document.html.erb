@@ -1,10 +1,8 @@
 
   <hr>
-  <h3>
-    <%= link_to document.title, document_path(document) %><br>
-    <%= link_to '[delete document]', document, :method => :delete %>
-  </h3>
+  <h3><%= link_to document.title, document_path(document) %></h3>
 
+  <%= button_to raw("delete"), document_path(document), method: :delete %>
   <% if document.privacy == true %>
     <%= form_for document do |f| %>
       <%= f.hidden_field :privacy, :value => '0' %>
@@ -18,6 +16,6 @@
   <% end %>
 
   <h4><%= document.context %></h4>
-  <h4>Currently Private? => <%= document.privacy %></h4>
+  <h4>(Currently Private? => )<%= document.privacy %></h4>
   <p><%=h truncate(document.versions.last.content, :length => 80) %></p>
 
