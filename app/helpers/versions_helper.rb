@@ -32,26 +32,7 @@ module VersionsHelper
    b.each do |word|
      expr = /\b#{word}\b/
      content.gsub!(expr, "<span class='highlight-#{a}'>#{word}</span>")
-     p content
    end
    content
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

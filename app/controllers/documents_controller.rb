@@ -2,7 +2,7 @@ class DocumentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @documents = Document.where(privacy: false).order(created_at: :desc)
+    @documents = Document.publicly_available.display_order
   end
 
   def create
@@ -25,8 +25,8 @@ class DocumentsController < ApplicationController
   end
 
   def new
-    @document = Document.new()
-    @version = Version.new()
+    @document = Document.new
+    @version = Version.new
   end
 
   def edit
@@ -58,9 +58,6 @@ class DocumentsController < ApplicationController
   end
 
   private
-
-  ## TODO:  The below methods are pretty hacky, but achieve similar ends to strong params
-  # is there a better WORKING way to get at nested resources in form submission?
 
   def document_params
     title = params[:document][:title]

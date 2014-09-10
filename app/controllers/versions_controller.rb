@@ -19,9 +19,10 @@ class VersionsController < ApplicationController
 
   def show
     @version = Version.find(params[:id])
-    @document = Document.find(@version.document_id)
+    @document = Document.find(@version.document)
     @versions = @document.versions
-    @comments = @version.comments.order(created_at: :desc)
+    
+    @comments = @version.comments.display_order
     @comment = @version.comments.build
 
     # @alchemist = AlchemyData.new(@version.content)

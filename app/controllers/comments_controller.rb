@@ -2,13 +2,10 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    user = current_user
-
     version = Version.find(params[:id])
 
-    comment = Comment.new(comment_params)
-    comment.version = version
-    comment.user = user
+    comment = version.comments.build(comment_params)
+    comment.user = current_user
     comment.save
 
     redirect_to document_path(version.document)
