@@ -2,7 +2,7 @@
 
   <div class="comment">
 
-    <p class="comment-header"><%= comment.user.name %>:</p>
+    <p class="comment-header"><%= link_to comment.user.name, user_path(comment.user), class: 'comment-header' %>:</p>
     <p><%= comment.body %></p>
       
   </div>
