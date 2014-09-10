@@ -19,7 +19,7 @@ class DocumentsController < ApplicationController
       @document.versions << @version
       redirect_to document_path(@document)
     else
-      flash[:notice] = 'Error'
+      flash[:notice] = "Unfortunately we couldn't save without all required fields."
       render 'new'
     end
   end
@@ -27,9 +27,6 @@ class DocumentsController < ApplicationController
   def new
     @document = Document.new
     @version = Version.new
-  end
-
-  def edit
   end
 
   def show
