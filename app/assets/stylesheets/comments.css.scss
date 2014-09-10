@@ -22,3 +22,16 @@
 .content-expand{
   color: $info-txt;
 }
+
+.dropdown{
+    padding: 20px;
+    // background:blue;
+    // color:white;
+    display:none;
+}
+
+.dropdown li{
+    display:block;
+    margin-bottom:10px;
+    color:white;
+}

@@ -6,13 +6,26 @@
 <br>
 
 <h2><%= @document.title %></h2>
-<h3 id="feedback">Get Feedback?  <span class='pointer'><%= icon('forward') %></span></h3>
 <br>
+
+<button id='version-options'>Version Options</button id='version-options'>
+<br>
+  <ul class="dropdown">
+	  <% @versions.each do |version| %>
+			<li><%= link_to "Version ##{version.version_number}", version_path(version) %></li> 
+	  <% end %>
+		<% if current_user == @document.user %>
+				<li><%= link_to 'Write a New Version', new_document_version_path(@document) %></li>
+        <li><%= link_to 'Delete This Version', version_path, :method => :delete %></li>
+      <% end %>
+
+	  <li></li>
+  </ul>
 
 <%= render partial: 'partials/comparison' %>
 
 
-<%= render partial: 'partials/doc_control_bar' %>
+<% render partial: 'partials/doc_control_bar' %>
 
 <hr>
 
