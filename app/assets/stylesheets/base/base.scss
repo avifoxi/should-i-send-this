@@ -5,11 +5,10 @@ body {
 	letter-spacing: $base-letter-space;
 	line-height: $base-line-height;
 
-	h1{
+	h1 {
 		font-family: $logo-font;
 		font-size: $xlarge-font;
 	}
-
 
 	h2 {
 		font-size: $large-font;
@@ -33,21 +32,21 @@ body {
 	.info {
 		color: $info-txt;
 	}
-	.info-bg{
+	.info-bg {
 		background-color: $info-bg;
 		color: $info-txt;
 	}
-	.warning-txt{
+	.warning-txt {
 		color: $warning-txt;
 	}
 	.warning-bg {
 		background-color: $warning-bg;
 		color: $warning-txt;
 	}
-	.error{
+	.error {
 		color: $warning-txt;
 	}
-	.error-bg{
+	.error-bg {
 		background-color: $warning-bg;
 		color: $warning-txt;
 	}
