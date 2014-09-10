@@ -23,6 +23,10 @@ class EmailController < ApplicationController
 
       response << "<h2>Your main concept is: '#{concepts.first}'</h2>"
 
+      response << "<h2>Your keywords are: "
+      keywords.each { |keyword| response << "'#{keyword}' " }
+      response << ".</h2>"
+
     else
       response << "<h2>Should I Send This? ...is down for maintenance. Try again later!</h2>"
     end
