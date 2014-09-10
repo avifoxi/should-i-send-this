@@ -1,18 +1,18 @@
 <div class="compare-modal">
   <div class='compare-row'>
     <div class="you-think compare-cell">
-      <h3>You Think You Said</h3>
+      <h3>You Think You're Talking About</h3>
       <h4><%= @document.context %></h4>
     </div>
 
     <div class="we-think compare-cell">
-      <h3><em>We</em> Think You Said</h3>
+      <h3><em>We</em> Think You're Talking About</h3>
       <h4><%= @concepts.first %></h4>
     </div>
   </div>
 
   <div class="gradient sentiment-gradient-bar">
-    <p>We think your message is <%= convert_to_percentage(@alchemist.sentiment) %></p>
+    <h3>We think your message is <%= convert_to_percentage(@alchemist.sentiment) %></h3>
   </div>
 
   <div class="sentiment-gradient-bar"> </div>
