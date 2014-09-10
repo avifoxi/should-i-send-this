@@ -1,37 +1,23 @@
-
-<%= @document.title %>
-<br>
-<%= @document.context %>
-<br>
+<h2>New Version</h2>
+<hr>
 <br>
 
-Most Recent Version<br>
-<br>
-<%= @most_recent_version.content %><br>
-<br>
-
-Comments<br>
-<br>
-<% @comments.each do |comment| %>
-  <p>
-    <small>by <%= comment.user.name %><br></small>
-    <%= comment.body %>
-  </p>
-  <br>
-<% end %>
-
-Create New Version<br>
-<br>
-
+<h3><%= @document.title %></h3>
 <%= form_for @document do |f| %>
-
   <%= f.fields_for @version do |v| %>
-    <%= v.label :content %><br>
-    <%= v.text_area :content %><br>
+    (most recent version included for your convenience)<br>
+    <%= v.text_area :content, :value => "#{@most_recent_version.content}" %><br>
   <% end %>
 
-  <%= f.label :privacy, 'Check to make this message private:' %><br>
+  <%= f.label :privacy, 'Private?' %>
   <%= f.check_box :privacy, :checked => false %>
 
   <br><%= f.submit %>
 <% end %>
+<br>
+
+<h3>Comments</h3>
+(for your reference)<br>
+<br>
+
+<%= render partial: 'partials/comments' %>
