@@ -1,12 +1,12 @@
 <body class="inner">
 
-<h2>Document View</h2>
+<h2>Document Feedback</h2>
 <h3>version #<%= @version.version_number %></h3>
 
 <br>
 
 <h2><%= @document.title %></h2>
-<h3>Get Feedback?  <span class='pointer'><%= icon('forward') %></span></h3>
+<h3 id="feedback">Get Feedback?  <span class='pointer'><%= icon('forward') %></span></h3>
 <br>
 
 <%= render partial: 'partials/comparison' %>

@@ -1,28 +1,32 @@
 <div class="compare-modal hidden ">
-
-    <div class="sentiment-gradient-bar"></div>
-    <div id="sentVal" class="hidden"><%= @alchemist.sentiment %></div>
     <div class='compare-row'>
       <div class="you-think compare-cell compare-hide">
         <p>You Think You Said:</p>
-        <p><%= @document.context %></p>
-
-      </div>
-
-      <div class="comp-arrow compare-cell compare-hide">
-        But...<br>
-        <div class="arrow"><%= icon('exchange') %></div>
+        <br>
+        <h4><%= @document.context %></h4>
       </div>
 
       <div class="we-think compare-cell compare-hide">
         <p><em>We</em> Think You Said:</p>
-        <p><%= @concepts.first %></p>
-
+        <br>
+        <h4><%= @concepts.first %></h4>
       </div>
-      <div class="hidden">.</div>
     </div>
 
-    <div class='compare-clear compare-hide'>
-      <%= link_to 'Make a New Version?', new_document_version_path(@document) %>
-    </div>
+    <p>Gradient based on positivity.</p>
+    <br>
+    <div class="sentiment-gradient-bar"></div>
+    <div id="sentVal" class="hidden"><%= @alchemist.sentiment %></div>
+    <h4>Charcoal: Negative</h4>
+
 </div>
+
+
+
+
+
+<!--
+<div class="comp-arrow compare-cell compare-hide">
+  But<br>
+  <div class="arrow"><%= icon('exchange') %></div>
+</div> -->

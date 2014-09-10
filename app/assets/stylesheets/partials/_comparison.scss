@@ -1,39 +1,43 @@
 .compare-modal {
   @include outer-container;
-  @include span-columns(8);
-  @include shift(-1);
-  border: black solid 0.15em;
+  // @include span-columns(8);
+  // @include shift(-1);
+  // border: black solid 0.15em;
   background-color: $main-bg;
   top: 20%;
-  position: fixed;
-  z-index: 2;
+  // position: absolute;
+  margin: 0 auto;
+  // z-index: 2;
   border-radius: 0.5em;
-
 }
-
 
 .compare-cell {
   // width: 45%;
   // @include clearfix;
-  @include span-columns(2.5 of 8);
+  // @include span-columns(4 of 8);
   // position: relative;
-  display: inline-block;
+  // display: inline-block;
   margin: 1.625em 0;
   padding: 20px;
   color: #555;
 }
 
 .you-think{
-  float: left;
+  // float: left;
+  background-color: #FFFFFF;
+  color: black;
 }
 
 .we-think{
-  float: right;
+  // float: right;
+  background-color: #2B2B2B;
+  color: #FFFFFF;
 }
 
 .comp-arrow{
   margin-left: 7.5%;
   font-size: 3em;
+  text-align: center;
   .arrow{
     font-size: 1.25em;
   }
