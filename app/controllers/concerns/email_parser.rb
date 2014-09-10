@@ -1,5 +1,7 @@
 class EmailParser 
 	
+	attr_reader :content, :sender, :subject
+
 	def initialize(params)
 		@sender = params['sender']
 		@subject = params['subject']
