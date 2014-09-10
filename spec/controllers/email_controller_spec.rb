@@ -1,10 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe EmailController, :type => :controller do
-  describe "POST email" do
-    it "posts to email_process route and sends email" do
-      # post :create, { :params => {:stuff => 'testing'}}
-    end
+  before(:each) do
+    login_user
   end
 
+  context "#create" do
+    it "sends an email" do
+      post :create, {sender: "a@a.com", subject: "subject", "stripped-text" => "body"}
+      expect(response.status).to eq(200)
+    end
+  end
 end

@@ -48,7 +48,9 @@ RSpec.configure do |config|
   # include capybara
   config.include Capybara::DSL
 
+  # Devise related config from here: http://dchua.com/2013/08/19/dry-up-your-devise-logins-in-rspec/
   config.include Devise::TestHelpers, :type => :controller
+  config.include ControllerMacros, :type => :controller
 
 end
 
