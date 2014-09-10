@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :document do
     title "Untitled"
     context "Test"
+    privacy false
   end
 end
