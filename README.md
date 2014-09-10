@@ -3,6 +3,7 @@ Should I Send This?
 
 ![Travis-CI](https://travis-ci.org/woolly-bear-caterpillars-2014/should-i-send-this.svg?branch=master)
 
+See it in action: [Should I Send This?](http://shouldisendthis.herokuapp.com)
 
 We've all sent regrettable emails. Get feedback before you push the button!  With the **Should I Send This?** app, you can learn the following:
 
