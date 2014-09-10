@@ -4,8 +4,7 @@ class CommentsController < ApplicationController
   def create
     version = Version.find(params[:id])
 
-    comment = Comment.new(comment_params)
-    comment.version = version
+    comment = version.comments.build(comment_params)
     comment.user = current_user
     comment.save
 
