@@ -7,11 +7,9 @@
       <i class="fa fa-cog"></i>
     </a>
   </h2>
-  <br>
 <% else %>
   <h2><%= @user.name %>'s Documents</h2>
 <% end %>
-<br>
 
 <% if current_user.id == @user_id %>
   <h2>Your Documents:</h2>
