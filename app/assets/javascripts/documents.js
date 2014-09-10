@@ -97,18 +97,16 @@ View.prototype = {
   }
 }
 
-
-
 $( document ).ready(function() {
 
 
-  $("button").on("click", function() {
-    compareTimedReveal();
-  })
-  $(".compare-modal").on('click', function(){
-    $(".compare-modal").fadeOut('slow');
+  // $("button").on("click", function() {
+  //   compareTimedReveal();
+  // })
+  // $(".compare-modal").on('click', function(){
+  //   $(".compare-modal").fadeOut('slow');
 
-  })
+  // })
 
   $('#version-control').click(function(){
     toggleDocControl();
@@ -123,4 +121,43 @@ $( document ).ready(function() {
 
   view.callibrateSentiment();
 
+  $('.content-expand').click(function() {
+    console.log('cheese')
+  })
+  
 });
+
+
+function contentTruncate() {
+  var content = $('.version-content').html();
+  var shortened = content.substr(0, 200)+'&hellip;'  ;
+  // content.substr(0, 200)+'&hellip;'
+}
+
+// $('.version-content').html().length
+
+
+function truncate() {
+  if (content.length > 200) { 
+    $('.version-content').html(shortened);
+  }
+}
+
+function expand(){
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
