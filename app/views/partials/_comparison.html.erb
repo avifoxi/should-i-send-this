@@ -11,11 +11,10 @@
     </div>
   </div>
 
-  <div class="gradient">
-    <h3>Gradient based on Message Positivity</h3>
-    <h4>(charcoal = negativity)</h4>
+  <div class="gradient sentiment-gradient-bar">
+    <p>We think your message is <%= convert_to_percentage(@alchemist.sentiment) %></p>
   </div>
 
-  <div class="sentiment-gradient-bar"></div>
+  <div class="sentiment-gradient-bar"> </div>
   <div id="sentVal" class="hidden"><%= @alchemist.sentiment %></div>
 </div>
