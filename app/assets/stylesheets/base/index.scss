@@ -52,6 +52,7 @@ img {
   padding: .1rem 1rem .2rem;
   text-shadow: 0 1px rgba(black,.3);
   box-shadow: 0 0 2px rgba(black,.2);
+  font-family: $helvetica;
 
   @media (max-width: $bp-s){
     padding: .5rem .7rem .6rem;
@@ -76,6 +77,8 @@ img {
   padding: .1rem 1rem .2rem;
   text-shadow: 0 1px rgba(black,.3);
   box-shadow: 0 0 2px rgba(black,.2);
+  font-family: $helvetica;
+
 
   @media (max-width: $bp-s){
     padding: .5rem .7rem .6rem;
