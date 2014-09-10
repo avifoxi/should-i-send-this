@@ -44,7 +44,7 @@ class TwilioController < ApplicationController
       :body => response_body,
     })
 
-    redirect_to :root, status: 400
+    redirect_to :root, status: 200
   end
 
   private
