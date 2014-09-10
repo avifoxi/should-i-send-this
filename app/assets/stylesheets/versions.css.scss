@@ -37,10 +37,4 @@ h3 .pointer {
   margin: 0 auto;
   width: 100%;
   background: -webkit-linear-gradient(left, red 0%, green 100%); /* Chrome10+,Safari5.1+ */
-
-  opacity: 0.5;
-  // background: linear-gradient(0deg, red,green);
-  // @include background(linear-gradient(red, green) );
-  // width: 12em;
-  height: 2em;
 }
