@@ -1,13 +1,16 @@
-<%= form_for(@comment, url: version_comment_path(@version, @comment), method: :post) do |f| %>
-  <p>
-    <h3>Give Feedback:</h3>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
+<h2>New Comment</h2>
 <hr>
+<br>
 
-<%= @version.content %>
+<div class="version-content">
+  <%= @version.content %>
+</div>
+<span class="content-expand">more</span>
+<br>
+<br>
+
+<%= form_for(@comment, url: version_comment_path(@version, @comment), method: :post) do |f| %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
+<br>
