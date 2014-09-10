@@ -2,13 +2,10 @@ class Version < ActiveRecord::Base
   validates :document_id, presence: true
   validates :content, presence: true
 
-  ### TODO: validate content uniqueness against previous versions of itself
-
   after_validation :assign_version_number
 
   belongs_to :document
   has_many :comments
-
 
   private
 

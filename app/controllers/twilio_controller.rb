@@ -1,5 +1,3 @@
-# require 'twilio-ruby'
-
 class TwilioController < ApplicationController
   include Webhookable
 
@@ -28,8 +26,6 @@ class TwilioController < ApplicationController
     else
       response_body = "Should I Send This is currently under maintenance."
     end
-
-
 
     # put your own credentials here
     account_sid = ENV["TWILIO_ACCOUNT_SID"]
@@ -63,13 +59,3 @@ class TwilioController < ApplicationController
     end
   end
 end
-
-# Avi's twilio number gen'd by the api
-# (929) 244-4620
-#
-
-
-
-
-
-

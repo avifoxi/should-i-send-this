@@ -7,7 +7,6 @@ body {
   font-size: $base-font-size;
   letter-spacing: $base-letter-space;
   line-height: $base-line-height;
-
 }
 
 .main-content {
@@ -25,37 +24,13 @@ body {
   padding-top: 2em;
   line-height: 1.618em;
 
-  // h1 {
-  //  color: black;
-  //  font-family: 'Montserrat', sans-serif;
-  // }
-
   a {
    color: black;
    text-decoration: none;
    &:hover{
     background-color: $info-bg;
    }
-
   }
-
-  // #send {
-  //   // background: #EB3618;
-  //   // color: white;
-  //   background-color: $info-bg;
-  //   color: $info-txt;
-
-  //   border-radius: 5px;
-  //   padding: .2em 1em;
-  //   margin-right: .05em;
-  //   float: right;
-  //   font-size: 0.8em;
-
-  //   &:hover {
-  //     background-color: $info-bg - 50;
-  //     color: $info-txt - 50;
-  //   }
-  // }
 }
 
 .logo{
@@ -63,7 +38,6 @@ body {
   text-decoration: none;
   font-family: 'Arvo', serif;
 }
-
 
 input[type="text"], input[type="email"], input[type="password"] {
   font-size: 0.8em;

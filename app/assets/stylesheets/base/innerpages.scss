@@ -1,11 +1,8 @@
 html {
   body.inner {
-
     background-color: $base-bg;
-
-
-
   }
+
   #landing-facade{
     position: fixed;
     top:0;
@@ -17,7 +14,6 @@ html {
     #facade-center{
       width: 15em;
       padding: 3em;
-      // height: 15em;
       position: absolute;
       left: 50%;
       top: 60%;
@@ -31,9 +27,7 @@ html {
       &:hover{
         background-color: $info-bg;
       }
-
     }
   }
-
 }
 
