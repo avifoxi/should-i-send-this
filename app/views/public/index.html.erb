@@ -33,11 +33,15 @@
         Sign up. Log in. Get feedback. Give feedback!
       </p>
     </div>
-    <div class="col-3 features">
+    <%= mail_to "postmaster@sandbox1a403896bb004c1b8a371ea0b0775d7f.mailgun.org", :id => 'mail-link' do %>
+      <div class="col-3 features">
       <i class="fa fa-envelope-o"></i>
-      <p>
-        You can email us as well. Get it sent to your inbox!
-      </p>
+      <p>You can email us as well. Get it sent to your inbox!</p>
     </div>
+    <% end %>
+
+
+
+
   </div>
 </section>
