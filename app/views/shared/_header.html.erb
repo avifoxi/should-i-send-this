@@ -1,6 +1,6 @@
 <header>
   <% if current_user %>
-    <h1 class="logo"><%= link_to 'Should I Send This?', user_path(current_user) %></h1>
+    <h1 class="logo"><%= link_to 'Should I Send This?', documents_path %></h1>
   <% else %>
     <h1 class="logo"><%= link_to 'Should I Send This?', root_url %></h1>
   <% end %>
@@ -9,7 +9,7 @@
       <% if current_user %>
         <li><%= link_to 'New Piece', new_document_path %></li>
         <li><%= link_to 'Give Feedback', documents_path %></li>
-        <li><%= link_to 'Profile', edit_user_registration_path(current_user) %></li>
+        <li><%= link_to 'Profile', user_path(current_user) %></li>
       <% end %>
       <li><%= render 'devise/menu/login_items' %></li>
     </ul>
