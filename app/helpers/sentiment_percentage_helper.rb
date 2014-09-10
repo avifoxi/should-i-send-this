@@ -1,10 +1,10 @@
 module SentimentPercentageHelper
-	def convert_to_percentage(sentiment_score)
-		if sentiment_score > 0
+	def convert_to_percentage(score)
+		perc = (score.abs * 100).round
+		translation_string = "#{ perc }\%"
+		 
+		translation_string += score > 0 ? ' Positive' : ' Negative'
 
-		else
-
-		end
-		return percentage
+		translation_string
 	end
 end
