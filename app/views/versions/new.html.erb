@@ -2,7 +2,15 @@
 <hr>
 <br>
 
-<h3><%= @document.title %></h3>
+<h3>
+  <%= @document.title %>
+  <% if @document.privacy == true %>
+    <i class="fa fa-lock"></i>
+  <% else %>
+    <i class="fa fa-unlock-alt"></i>
+  <% end %>
+</h3>
+<br>
 <%= form_for @document do |f| %>
   <%= f.fields_for @version do |v| %>
     (most recent version included for your convenience)<br>
