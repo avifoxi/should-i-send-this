@@ -25,8 +25,8 @@ class DocumentsController < ApplicationController
   end
 
   def new
-    @document = Document.new()
-    @version = Version.new()
+    @document = Document.new
+    @version = Version.new
   end
 
   def edit
