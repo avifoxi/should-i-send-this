@@ -12,7 +12,6 @@
   .comment-header {
     color: $info-txt;
   }
-
 }
 
 .content-expand{
@@ -20,14 +19,12 @@
 }
 
 .dropdown{
-    padding: 20px;
-    // background:blue;
-    // color:white;
-    display:none;
+  padding: 20px;
+  display:none;
 }
 
 .dropdown li{
-    display:block;
-    margin-bottom:10px;
-    color:white;
+  display:block;
+  margin-bottom:10px;
+  color:white;
 }
