@@ -59,9 +59,6 @@ class DocumentsController < ApplicationController
 
   private
 
-  ## TODO:  The below methods are pretty hacky, but achieve similar ends to strong params
-  # is there a better WORKING way to get at nested resources in form submission?
-
   def document_params
     title = params[:document][:title]
     context = params[:document][:context]
