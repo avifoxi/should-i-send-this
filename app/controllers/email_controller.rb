@@ -3,29 +3,13 @@ class EmailController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:create]
 
   def create
-    sender = EmailParser.sender(params)
-    email_body = EmailParser.content(params)
-    subject = EmailParser.subject(params)
+    email_parser = EmailParser.new(params)
 
-    user = User.find_by_email(sender)
-    
-    if user
-      version = Version.new
-      version.content = email_body
-
-      document = Document.new
-      document.title = subject
-      document.context = subject
-      document.privacy = true
-      document.save
-
-      document.versions << version
-      user.documents << document
-    end
+    email_parser.create_document_version_for_user
 
     response = "<h1>Hello and thank you for using... <strong>Should I Send This?</strong></h1>"
 
-    alchemist = AlchemyData.new(email_body)
+    alchemist = AlchemyData.new(email_parser.content)
 
     if alchemist
       sentiment = (alchemist.sentiment*100).floor
@@ -50,10 +34,10 @@ class EmailController < ApplicationController
 
     response << "<h3>Below is the content of your email:</h3>"
     response << "<p>"
-    response << email_body
+    response << email_parser.content
     response << "</p>"
 
-    UserMailer.email(sender, response).deliver
+    UserMailer.email(email_parser.sender, response).deliver
 
     redirect_to :root, status: 200
   end
