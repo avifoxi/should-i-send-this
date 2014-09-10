@@ -3,12 +3,12 @@ module Features
     def new_user_sign_up
       visit root_url
       click_link 'Register'
-      fill_in 'Name', :with => 'Test Name'
-      fill_in 'Email', :with => 'email@test.com'
-      fill_in 'Password', :with => 'test1234'
-      fill_in 'Password confirmation', :with => 'test1234'
+      fill_in 'user_name', :with => 'Test Name'
+      fill_in 'user_email', :with => 'email@test.com'
+      fill_in 'user_password', :with => 'test1234'
+      fill_in 'user_password_confirmation', :with => 'test1234'
 
-      click_button 'Sign up'
+      click_button 'Register'
       expect(page).to have_content 'Welcome! You have signed up successfully.'
     end
 
