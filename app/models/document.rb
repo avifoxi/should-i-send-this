@@ -6,4 +6,5 @@ class Document < ActiveRecord::Base
   has_many :comments, through: :versions
 
   scope :publicly_available, -> { where(privacy: false) }
+  scope :display_order,      -> { order(created_at: :desc) }
 end
