@@ -25,9 +25,9 @@ class VersionsController < ApplicationController
     @comments = @version.comments.display_order
     @comment = @version.comments.build
 
-    # @alchemist = AlchemyData.new(@version.content)
+    @alchemist = AlchemyData.new(@version.content)
     # UNCOMMENT BELOW FOR NON-API CALL DEVELOPER MODE
-    @alchemist = ErrorAlchemist.new
+    # @alchemist = ErrorAlchemist.new
 
     unless @alchemist
       @alchemist = ErrorAlchemist.new
