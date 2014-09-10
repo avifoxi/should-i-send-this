@@ -2,13 +2,13 @@
   @include outer-container;
   // @include span-columns(8);
   // @include shift(-1);
-  // border: black solid 0.15em;
   background-color: $main-bg;
   top: 20%;
   // position: absolute;
   margin: 0 auto;
   // z-index: 2;
-  border-radius: 0.5em;
+  border: 1px solid #bbb;
+  border-radius: 5px;
 }
 
 .compare-cell {
@@ -17,21 +17,20 @@
   // @include span-columns(4 of 8);
   // position: relative;
   // display: inline-block;
-  margin: 1.625em 0;
   padding: 20px;
   color: #555;
 }
 
 .you-think{
   // float: left;
-  background-color: #FFFFFF;
+  background-color: #01FF70;
   color: black;
 }
 
 .we-think{
   // float: right;
-  background-color: #2B2B2B;
-  color: #FFFFFF;
+  background-color: #2ECC40;
+  color: black;
 }
 
 .comp-arrow{
@@ -53,4 +52,8 @@
   visibility: hidden;
 }
 
-
+.gradient {
+  padding: 20px;
+  color: white;
+  background-color: #2b2b2b;
+}
