@@ -2,9 +2,6 @@
 
 <h2><%= @document.title %> Version #<%= @version.version_number %></h2>
 <hr>
-<br>
-
-<button id='version-options'>Versions</button id='version-options'>
 
 <ul class="dropdown">
   <% @versions.each do |version| %>
@@ -16,24 +13,23 @@
   <% end %>
 </ul>
 <br>
-<br>
 
 <div class="version-content">
   <%= add_highlight_spans(@version, @alchemist) %>
 </div>
 <span class="content-expand">more</span>
 <br>
-<br>
 
+<button id='version-options'>Versions</button id='version-options'>
 <hr>
+
 <%= render partial: 'partials/comparison' %>
 <br>
 <hr>
 <br>
 
-<h3><%= link_to "Leave a comment", version_comment_path(@version) %><h3>
+<h3><%= link_to "Leave a comment?", version_comment_path(@version) %><h3>
 <br>
-<hr>
 <br>
 <h3>Comments</h3>
 <br>
