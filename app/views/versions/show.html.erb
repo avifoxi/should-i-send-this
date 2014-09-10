@@ -1,54 +1,43 @@
 <body class="inner">
 
-<h2>Document Feedback</h2>
-<h3>version #<%= @version.version_number %></h3>
-
-<br>
-
-<h2><%= @document.title %></h2>
-<br>
-
-<button id='version-options'>Version Options</button id='version-options'>
-<br>
-  <ul class="dropdown">
-	  <% @versions.each do |version| %>
-			<li><%= link_to "Version ##{version.version_number}", version_path(version) %></li> 
-	  <% end %>
-		<% if current_user == @document.user %>
-				<li><%= link_to 'Write a New Version', new_document_version_path(@document) %></li>
-        <li><%= link_to 'Delete This Version', version_path, :method => :delete %></li>
-      <% end %>
-
-	  <li></li>
-  </ul>
-
-<%= render partial: 'partials/comparison' %>
-
-
-<% render partial: 'partials/doc_control_bar' %>
-
+<h2><%= @document.title %> Version #<%= @version.version_number %></h2>
 <hr>
+<br>
 
+<button id='version-options'>Versions</button id='version-options'>
 
-<h3>Version #<%= @version.version_number %></h3>
-
-
+<ul class="dropdown">
+  <% @versions.each do |version| %>
+    <li><%= link_to "Version ##{version.version_number}" , version_path(version) %></li>
+  <% end %>
+  <% if current_user == @document.user %>
+      <li><%= link_to 'Write a New Version', new_document_version_path(@document) %></li>
+      <li><%= link_to 'Delete This Version', version_path, :method => :delete %></li>
+  <% end %>
+</ul>
+<br>
+<br>
 
 <div class="version-content">
   <%= add_highlight_spans(@version, @alchemist) %>
 </div>
-
 <span class="content-expand">more</span>
+<br>
+<br>
+
 <hr>
-
-
-
-
-
+<%= render partial: 'partials/comparison' %>
+<% render partial: 'partials/doc_control_bar' %>
+<br>
+<hr>
 <br>
 
+<h3><%= link_to "Leave a comment", version_comment_path(@version) %><h3>
 <br>
-<%= link_to "Comment?", version_comment_path(@version) %>
+<hr>
+<br>
+<h3>Comments</h3>
+<br>
 <%= render partial: 'partials/comments' %>
 
 

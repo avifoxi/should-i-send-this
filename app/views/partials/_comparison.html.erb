@@ -1,24 +1,23 @@
 <div class="compare-modal">
-    <div class='compare-row'>
-      <div class="you-think compare-cell">
-        <p>You Think You Said:</p>
-        <br>
-        <h4><%= @document.context %></h4>
-      </div>
-
-      <div class="we-think compare-cell">
-        <p><em>We</em> Think You Said:</p>
-        <br>
-        <h4><%= @concepts.first %></h4>
-      </div>
+  <div class='compare-row'>
+    <div class="you-think compare-cell">
+      <p>You Think You Said:</p>
+      <br>
+      <h4><%= @document.context %></h4>
     </div>
 
-    <p>Gradient based on positivity.</p>
-    <br>
-    <div class="sentiment-gradient-bar"></div>
-    <div id="sentVal" class="hidden"><%= @alchemist.sentiment %></div>
-    <h4>Charcoal: Negative</h4>
+    <div class="we-think compare-cell">
+      <p><em>We</em> Think You Said:</p>
+      <br>
+      <h4><%= @concepts.first %></h4>
+    </div>
+  </div>
 
+  <p>Gradient based on positivity.</p>
+  <br>
+  <div class="sentiment-gradient-bar"></div>
+  <div id="sentVal" class="hidden"><%= @alchemist.sentiment %></div>
+  <h4>Charcoal: Negative</h4>
 </div>
 
 
