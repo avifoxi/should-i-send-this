@@ -1,75 +1,38 @@
 var View = function(elements){
-  this.toggleButton = elements.toggleButton;
-  this.createCommentButt = elements.createCommentButt;
-  this.feedbackPointer = elements.feedbackPointer;
   this.sentVal = 0;
+  this.fullContent = '';
+  this.shortened = '';
 
-  this.docControlShowing = false;
-  this.newCommentShowing = false;
-  this.feedbackShowing = false;
-
+  this.truncated = false;
   var _this = this
-
-  this.toggleButton.click(function(){
-    _this.toggleDocControl();
-  })
-
-
-  this.createCommentButt.click(function(e){
-    e.preventDefault();
-    _this.toggleCommentBox();
-  })
-
-  this.feedbackPointer.click(function() {
-    _this.feedbackShowing = !_this.feedbackShowing;
-    if (_this.feedbackShowing){
-
-    } else{
-      _this.compareTimedReveal();
-    }
-  })
 }
 
 
 View.prototype = {
-  toggleDocControl : function() {
+  getContent : function() {
     var _this = this;
-    _this.docControlShowing = !_this.docControlShowing;
-    if (_this.docControlShowing) {
-      $('.control-aside').fadeIn(700);
+    this.fullContent = $('.version-content').html();
+    this.shortened = _this.fullContent.substr(0, 200)+'&hellip;';
+    this.setContent();
+  },
+  setContent : function() {
+    var _this = this;
+    if (_this.truncated) {
+      _this.expand();
+      $('.content-expand').html('less');
     } else {
-      $('.control-aside').fadeOut('slow');
+      _this.truncate();
+      $('.content-expand').html('more');
     }
+    this.truncated = !_this.truncated;
   },
-  toggleCommentBox : function() {
+  truncate : function () {
     var _this = this;
-    var _this = this;
-    _this.newCommentShowing = !_this.newCommentShowing;
-    if (_this.newCommentShowing) {
-      $('.comment-aside').fadeIn(700);
-    } else {
-      $('.comment-aside').fadeOut('slow');
-    }
+    $('.version-content').html(_this.shortened);
   },
-  compareTimedReveal : function() {
+  expand : function (){
     var _this = this;
-    $('#feedback').click(function(){
-      $('#feedback').append( $(".compare-modal") );
-      $(".compare-modal").removeClass('hidden');
-      _this.iterativeReveal();
-    })
-
-
-    // $(".compare-modal").fadeIn(500, function(){
-    //   $(".compare-modal").removeClass('hidden');
-    //   _this.iterativeReveal(300);
-    // });
-  },
-  iterativeReveal : function(time) {
-    var elements = [ ".you-think", '.comp-arrow', '.we-think', '.compare-clear']
-    $.each(elements, function( i, value ) {
-      setTimeout( function(){ $(elements[i]).removeClass('compare-hide') }, time * (1.25 * (i+1)) )
-    });
+    $('.version-content').html(_this.fullContent);
   },
   getSentVal : function(){
     this.sentVal = parseFloat($('#sentVal').html() );
@@ -100,64 +63,15 @@ View.prototype = {
 $( document ).ready(function() {
 
 
-  // $("button").on("click", function() {
-  //   compareTimedReveal();
-  // })
-  // $(".compare-modal").on('click', function(){
-  //   $(".compare-modal").fadeOut('slow');
-
-  // })
-
-  $('#version-control').click(function(){
-    toggleDocControl();
-  })
-
   view = new View({
-    'toggleButton' : $('#version-control'),
-    'facadeButton' : $('#facade-center'),
-    'createCommentButt' : $('.create-comment'),
-    'feedbackPointer' : $('.pointer')
   })
 
   view.callibrateSentiment();
-
+  view.getContent();
+  
   $('.content-expand').click(function() {
-    console.log('cheese')
+    view.setContent();
   })
   
 });
-
-
-function contentTruncate() {
-  var content = $('.version-content').html();
-  var shortened = content.substr(0, 200)+'&hellip;'  ;
-  // content.substr(0, 200)+'&hellip;'
-}
-
-// $('.version-content').html().length
-
-
-function truncate() {
-  if (content.length > 200) { 
-    $('.version-content').html(shortened);
-  }
-}
-
-function expand(){
-  
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
