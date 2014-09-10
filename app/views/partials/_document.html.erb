@@ -1,37 +1,48 @@
 <div id="document-partial">
-  <hr>
-  <br>
-  <h3>
-    <%= link_to document.title, document_path(document) %>
-    <% if document.privacy == true %>
-      <i class="fa fa-lock"></i>
-    <% else %>
-      <i class="fa fa-unlock-alt"></i>
-    <% end %>
-  </h3>
-
-  <ul>
-    <li>
-      <%= button_to raw("delete"), document_path(document), method: :delete %>
-    </li>
-    <li>
+  <% if current_user.id == document.user_id %>
+    <hr>
+    <br>
+    <h3>
+      <%= link_to document.title, document_path(document) %>
       <% if document.privacy == true %>
-        <%= form_for document do |f| %>
-          <%= f.hidden_field :privacy, :value => '0' %>
-          <%= f.submit("make public") %>
-        <% end %>
+        <i class="fa fa-lock"></i>
       <% else %>
-        <%= form_for document do |f| %>
-          <%= f.hidden_field :privacy, :value => '1' %>
-          <%= f.submit("make private") %>
-        <% end %>
+        <i class="fa fa-unlock-alt"></i>
       <% end %>
-    </l1>
-  </ul>
+    </h3>
 
-  <h4>Context:</h4>
-  <h4><%= document.context %></h4>
-  <br>
-  <h4>Content:</h4>
-  <h4><%= truncate(document.versions.last.content, :length => 130) %></h4>
+    <ul>
+      <li>
+        <%= button_to raw("delete"), document_path(document), method: :delete %>
+      </li>
+      <li>
+        <% if document.privacy == true %>
+          <%= form_for document do |f| %>
+            <%= f.hidden_field :privacy, :value => '0' %>
+            <%= f.submit("make public") %>
+          <% end %>
+        <% else %>
+          <%= form_for document do |f| %>
+            <%= f.hidden_field :privacy, :value => '1' %>
+            <%= f.submit("make private") %>
+          <% end %>
+        <% end %>
+      </l1>
+    </ul>
+    <h4>Context:</h4>
+    <h4><%= document.context %></h4>
+    <br>
+    <h4>Content:</h4>
+    <h4><%= truncate(document.versions.last.content, :length => 130) %></h4>
+  <% else %>
+    <hr>
+    <br>
+    <h3><%= link_to document.title, document_path(document) %></h3>
+    <br>
+    <h4>Context:</h4>
+    <h4><%= document.context %></h4>
+    <br>
+    <h4>Content:</h4>
+    <h4><%= truncate(document.versions.last.content, :length => 130) %></h4>
+  <% end %>
 </div>
