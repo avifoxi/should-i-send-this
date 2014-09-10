@@ -21,13 +21,13 @@ class VersionsController < ApplicationController
     @version = Version.find(params[:id])
     @document = Document.find(@version.document)
     @versions = @document.versions
-    
+
     @comments = @version.comments.display_order
     @comment = @version.comments.build
 
-    # @alchemist = AlchemyData.new(@version.content)
+    @alchemist = AlchemyData.new(@version.content)
     # UNCOMMENT BELOW FOR NON-API CALL DEVELOPER MODE
-    @alchemist = FakeAlchemist.new
+    # @alchemist = FakeAlchemist.new
 
     @concepts = @alchemist.concepts
   end
