@@ -19,7 +19,6 @@ class EmailParser
   	if @document
   		save_version
   	end
-  	return true
   end
 
   private
