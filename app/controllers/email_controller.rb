@@ -5,6 +5,23 @@ class EmailController < ApplicationController
   def create
     sender = EmailParser.sender(params)
     email_body = EmailParser.content(params)
+    subject = EmailParser.subject(params)
+
+    user = User.find_by_email(sender)
+    
+    if user
+      version = Version.new
+      version.content = email_body
+
+      document = Document.new
+      document.title = subject
+      document.context = subject
+      document.privacy = true
+      document.save
+
+      document.versions << version
+      user.documents << document
+    end
 
     response = "<h1>Hello and thank you for using... <strong>Should I Send This?</strong></h1>"
 
