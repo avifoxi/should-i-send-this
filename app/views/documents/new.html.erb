@@ -1,31 +1,33 @@
 <body class="inner">
 
 <%= form_for @document do |f| %>
-  <h2>New Document</h2>
 
+  <h2>New Piece</h2>
+  <hr>
   <br>
-
   <h3>Title</h3>
-
-  <%= f.text_field :title, size: 100 %>
-
-  <br><br>
-
-  <h3>Main Concept</h3>
+  <h4>(the name of your piece)</h4>
+  <%= f.text_field :title %><br>
+  <br>
+  <h3>Context</h3>
+  <h4>(the circumstances that form the setting for the content)</h4>
 
   <%= f.text_area :context, class: 'textarea15' %><br>
 
   <br><br>
 
-    <%= f.fields_for :versions do |v| %>
-      <h3><%= v.label :content %></h3>
-        <%= f.fields_for @version do |v| %>
-          <%= v.text_area :content %><br>
-        <% end %>
-    <% end %>
-    <br>
 
-  <%= f.label :privacy, 'Check to make this message private:' %><br>
+  <%= f.fields_for :versions do |v| %>
+    <h3><%= v.label :content %></h3>
+      <h4>(the substance or material you would like to assess)</h4>
+      <%= f.fields_for @version do |v| %>
+        <%= v.text_area :content %><br>
+      <% end %>
+  <% end %>
+  <br>
+
+
+  <%= f.label :privacy, 'Private?' %>
   <%= f.check_box :privacy, :checked => false %>
 
 
