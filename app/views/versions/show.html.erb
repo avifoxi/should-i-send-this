@@ -25,6 +25,7 @@
   <%= add_highlight_spans(@version, @alchemist) %>
 </div>
 
+<span class="content-expand">more</span>
 <hr>
 
 
@@ -33,9 +34,8 @@
 
 <br>
 
-
 <br>
-
+<%= link_to "Comment?", version_comment_path(@version) %>
 <%= render partial: 'partials/comments' %>
 
 
