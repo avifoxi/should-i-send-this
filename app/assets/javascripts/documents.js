@@ -6,6 +6,7 @@ var View = function(elements){
 
   this.docControlShowing = false;
   this.newCommentShowing = false;
+  this.feedbackShowing = false;
 
   var _this = this
 
@@ -20,7 +21,12 @@ var View = function(elements){
   })
 
   this.feedbackPointer.click(function() {
-    _this.compareTimedReveal();
+    _this.feedbackShowing = !_this.feedbackShowing;
+    if (_this.feedbackShowing){
+
+    } else{
+      _this.compareTimedReveal();
+    }
   })
 }
 
@@ -47,10 +53,17 @@ View.prototype = {
   },
   compareTimedReveal : function() {
     var _this = this;
-    $(".compare-modal").fadeIn(500, function(){
+    $('#feedback').click(function(){
+      $('#feedback').append( $(".compare-modal") );
       $(".compare-modal").removeClass('hidden');
-      _this.iterativeReveal(300);
-    });
+      _this.iterativeReveal();
+    })
+
+
+    // $(".compare-modal").fadeIn(500, function(){
+    //   $(".compare-modal").removeClass('hidden');
+    //   _this.iterativeReveal(300);
+    // });
   },
   iterativeReveal : function(time) {
     var elements = [ ".you-think", '.comp-arrow', '.we-think', '.compare-clear']
@@ -66,7 +79,7 @@ View.prototype = {
     _this.getSentVal();
     var sentVal = _this.sentVal;
     var colorVars = _this.sentimentGrader( sentVal);
-    var bgParams = "rgba(0, 0, 0, 0) -webkit-linear-gradient(left, red " + colorVars.negVal + "%, green " + colorVars.posVal + "%) repeat scroll 0% 0% / auto padding-box border-box";
+    var bgParams = "rgba(0, 0, 0, 0) -webkit-linear-gradient(left, #2B2B2B " + colorVars.negVal + "%, #2ECC40 " + colorVars.posVal + "%) repeat scroll 0% 0% / auto padding-box border-box";
     $('.sentiment-gradient-bar').css('background', bgParams);
 
   },
@@ -94,6 +107,7 @@ $( document ).ready(function() {
   })
   $(".compare-modal").on('click', function(){
     $(".compare-modal").fadeOut('slow');
+
   })
 
   $('#version-control').click(function(){

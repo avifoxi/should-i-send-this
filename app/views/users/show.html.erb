@@ -1,9 +1,12 @@
 <body class="inner">
 
 <% if @user == current_user %>
-  <h2>Welcome, <%= @user.name %>! </h2>
-  <hr>
-  <%= link_to 'Settings', edit_user_registration_path %>
+  <h2>
+    Welcome, <%= @user.name %>!
+    <a href="<%= edit_user_registration_path %>">
+      <i class="fa fa-cog"></i>
+    </a>
+  </h2>
   <br>
 <% else %>
   <h2><%= @user.name %>'s Profile Page</h2>
