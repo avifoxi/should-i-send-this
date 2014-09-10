@@ -1,21 +1,35 @@
-
+<div id="docuemnt-partial">
   <hr>
-  <h3><%= link_to document.title, document_path(document) %></h3>
+  <br>
+  <h3>
+    <%= link_to document.title, document_path(document) %>
+    <% if document.privacy == true %>
+      <i class="fa fa-lock"></i>
+    <% else %>
+      <i class="fa fa-unlock-alt"></i>
+    <% end %>
+  </h3>
 
-  <%= button_to raw("delete"), document_path(document), method: :delete %>
-  <% if document.privacy == true %>
-    <%= form_for document do |f| %>
-      <%= f.hidden_field :privacy, :value => '0' %>
-      <%= f.submit("make public") %>
-    <% end %>
-  <% else %>
-    <%= form_for document do |f| %>
-      <%= f.hidden_field :privacy, :value => '1' %>
-      <%= f.submit("make private") %>
-    <% end %>
-  <% end %>
+  <ul>
+    <li>
+      <%= button_to raw("delete"), document_path(document), method: :delete %>
+    </li>
+    <li>
+      <% if document.privacy == true %>
+        <%= form_for document, :html => {:class => 'privacy'} do |f| %>
+          <%= f.hidden_field :privacy, :value => '0' %>
+          <%= f.submit("make public") %>
+        <% end %>
+      <% else %>
+        <%= form_for document do |f| %>
+          <%= f.hidden_field :privacy, :value => '1' %>
+          <%= f.submit("make private") %>
+        <% end %>
+      <% end %>
+    </l1>
+  </ul>
 
   <h4><%= document.context %></h4>
-  <h4>(Currently Private? => )<%= document.privacy %></h4>
-  <p><%=h truncate(document.versions.last.content, :length => 80) %></p>
 
+  <p><%=h truncate(document.versions.last.content, :length => 80) %></p>
+</div>
