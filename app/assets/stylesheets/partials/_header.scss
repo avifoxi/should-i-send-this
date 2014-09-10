@@ -22,7 +22,7 @@ header {
       li {
         float: left;
         display: inline-block;
-        font-size: .7em;
+        font-size: .8em;
           a {
            color: black;
            float: left;
@@ -30,6 +30,7 @@ header {
            text-decoration: none;
            padding-left: 1.5em;
            font-weight: bold;
+           font-family: $helvetica;
           }
       }
     }
