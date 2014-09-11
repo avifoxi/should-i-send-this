@@ -1,6 +1,11 @@
 <body class="inner">
 
-<h2><%= @document.title %> Version #<%= @version.version_number %></h2>
+<h2>
+  <%= @document.title %> Version #<%= @version.version_number %>
+  <% if @document.privacy == true %>
+    <i class="fa fa-lock"></i>
+  <% end %>
+</h2>
 <hr>
 <br>
 

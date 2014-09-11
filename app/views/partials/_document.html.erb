@@ -6,43 +6,41 @@
       <%= link_to document.title, document_path(document) %>
       <% if document.privacy == true %>
         <i class="fa fa-lock"></i>
-      <% else %>
-        <i class="fa fa-unlock-alt"></i>
       <% end %>
     </h3>
 
     <ul>
       <li>
-        <%= button_to raw("Delete"), document_path(document), method: :delete %>
+        <%= button_to raw("Delete"), document_path(document), method: :delete, class: "delete" %>
       </li>
       <li>
         <% if document.privacy == true %>
           <%= form_for document do |f| %>
             <%= f.hidden_field :privacy, :value => '0' %>
-            <%= f.submit("Set Public") %>
+            <%= f.submit "Set Public",  class: "privacy" %>
           <% end %>
         <% else %>
           <%= form_for document do |f| %>
             <%= f.hidden_field :privacy, :value => '1' %>
-            <%= f.submit("Set Private") %>
+            <%= f.submit "Set Private", class: "privacy" %>
           <% end %>
         <% end %>
       </l1>
     </ul>
-    <h4>Context</h4>
+    <span class="green">Context</span>
     <h4><%= document.context %></h4>
     <br>
-    <h4>Content</h4>
+    <span class="green">Content</span>
     <h4><%= truncate(document.versions.last.content, :length => 130) %></h4>
   <% else %>
     <hr>
     <br>
     <h3><%= link_to document.title, document_path(document) %></h3>
     <br>
-    <h4>Context</h4>
+    <span class="green">Context</span>
     <h4><%= document.context %></h4>
     <br>
-    <h4>Content</h4>
+    <span class="green">Content</span>
     <h4><%= truncate(document.versions.last.content, :length => 130) %></h4>
   <% end %>
 </div>
