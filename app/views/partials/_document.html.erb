@@ -13,7 +13,7 @@
 
     <ul>
       <li>
-        <%= button_to raw("Delete"), document_path(document), method: :delete %>
+        <%= link_to "Delete", document_path(document), method: :delete %>
       </li>
       <li>
         <% if document.privacy == true %>
