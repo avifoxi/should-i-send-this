@@ -5,7 +5,7 @@ class EmailController < ApplicationController
   def create
     email_parser = EmailParser.new(params)
 
-    email_parser.create_document_version_for_user
+    # email_parser.create_document_version_for_user
 
     response = "<h1>Hello and thank you for using... <strong>Should I Send This?</strong></h1>"
 
