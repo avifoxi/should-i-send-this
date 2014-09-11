@@ -11,6 +11,8 @@ We've all sent regrettable emails. Get feedback before you push the button!  Wit
 * *Main concept* - is your letter about what you think it's about?
 * *Overall positivity* - are you unintentionally being too negative?
 
+![Screenshot](design-docs/shouldisendthis_screenshot_sm.png)
+
 ## Team Members
 * Alan Cohen - [Github](https://github.com/acjetnut)
 * Avi Fox-Rosen - [Github](https://github.com/avifoxi)
