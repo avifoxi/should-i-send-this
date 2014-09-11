@@ -91,6 +91,14 @@ input[type="submit"].privacy, input[type="submit"].delete {
  }
 }
 
+span#logo {
+  font-family: $logo-font;
+  font-size: 1.6rem;
+  color: $info-bg;
+  text-shadow: 0 1px rgba(black,.3);
+  font-weight: bold;
+}
+
 .high {
   background-color: green;
 }
