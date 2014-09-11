@@ -1,9 +1,9 @@
 module VersionsHelper
   def add_highlight_spans(version, alchemist)
     content = version.content
-    keywords = three_keywords_with_variations(alchemist.keywords)
+    p keywords = three_keywords_with_variations(alchemist.keywords)
 
-    unless keywords['high'] == nil
+    if keywords[:high]
       keywords.each do |k, v|
         wrap_word_in_span(k, v, content)
       end
