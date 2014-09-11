@@ -27,20 +27,20 @@
         <% end %>
       </l1>
     </ul>
-    <h4>Context</h4>
+    <span class="green">Context</span>
     <h4><%= document.context %></h4>
     <br>
-    <h4>Content</h4>
+    <span class="green">Content</span>
     <h4><%= truncate(document.versions.last.content, :length => 130) %></h4>
   <% else %>
     <hr>
     <br>
     <h3><%= link_to document.title, document_path(document) %></h3>
     <br>
-    <h4>Context</h4>
+    <span class="green">Context</span>
     <h4><%= document.context %></h4>
     <br>
-    <h4>Content</h4>
+    <span class="green">Content</span>
     <h4><%= truncate(document.versions.last.content, :length => 130) %></h4>
   <% end %>
 </div>
