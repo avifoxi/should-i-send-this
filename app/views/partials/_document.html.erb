@@ -13,18 +13,18 @@
 
     <ul>
       <li>
-        <%= link_to "Delete", document_path(document), method: :delete %>
+        <%= button_to raw("Delete"), document_path(document), method: :delete, class: "delete" %>
       </li>
       <li>
         <% if document.privacy == true %>
           <%= form_for document do |f| %>
             <%= f.hidden_field :privacy, :value => '0' %>
-            <%= f.submit("Set Public") %>
+            <%= f.submit "Set Public",  class: "privacy" %>
           <% end %>
         <% else %>
           <%= form_for document do |f| %>
             <%= f.hidden_field :privacy, :value => '1' %>
-            <%= f.submit("Set Private") %>
+            <%= f.submit "Set Private", class: "privacy" %>
           <% end %>
         <% end %>
       </l1>

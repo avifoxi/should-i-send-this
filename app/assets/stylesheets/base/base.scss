@@ -73,10 +73,22 @@ body {
     border: none;
     border-radius: 5px;
     padding: .2em 1em;
-
     text-shadow: 0 1px rgba(black,.3);
     box-shadow: 0 0 2px rgba(black,.2);
   }
+}
+
+input[type="submit"].privacy, input[type="submit"].delete {
+  font-family: $georgia;
+  font-weight: none;
+  background: white;
+  font-weight: normal;
+  font-size: .9rem;
+  color: black;
+  text-decoration: none;
+  &:hover{
+   background-color: $info-bg;
+ }
 }
 
 .high {
