@@ -101,91 +101,64 @@ document.versions.create(content: "DEAR MRS. LANDERS: I have just graduated from
 
 
 
-
-
-content = <<TXT
-DEAR MRS. LANDERS: I've been married four years, have two children and am expecting a third soon. My husband has been chasing around town with women for the past seven months. When I told him that I was getting a separation, he promised to change his ways and behave himself. I have no money for attorneys' fees, and I cannot work. Shall I try to borrow the money from relatives, or should I wait and see what happens? -- TROUBLED WIFE
-TXT
 user = User.all.sample
 document = user.documents.create(
-    title: 'Troubled Wife',
+    title: "Troubled Wife",
     context: "my marriage",
     privacy: false
   )
 
-document.versions.create(content: content) 
+document.versions.create(content: "DEAR MRS. LANDERS: I've been married four years, have two children and am expecting a third soon. My husband has been chasing around town with women for the past seven months. When I told him that I was getting a separation, he promised to change his ways and behave himself. I have no money for attorneys' fees, and I cannot work. Shall I try to borrow the money from relatives, or should I wait and see what happens? -- TROUBLED WIFE")
 
 
-
-content = <<TXT
-DEAR T.W.: You have every right to blow a gasket. This character does not deserve a family -- as of now. But since he has promised to mend his ways, give him another chance. Try to persuade him to go with you to a marriage counselor. See if, together, you can't find out what's gone wrong with your marriage. Let him know, too, if there is any more extramarital activity, you're giving him the heave-ho.
-TXT
 user = User.all.sample
 document = user.documents.create(
-    title: 'Another Chance',
+    title: "Another Chance",
     context: "my husband",
     privacy: false
   )
 
-document.versions.create(content: content) 
+document.versions.create(content: "DEAR T.W.: You have every right to blow a gasket. This character does not deserve a family -- as of now. But since he has promised to mend his ways, give him another chance. Try to persuade him to go with you to a marriage counselor. See if, together, you can't find out what's gone wrong with your marriage. Let him know, too, if there is any more extramarital activity, you're giving him the heave-ho.")
 
 
 
-content = <<TXT
-Two months ago, I met a man who seems very fond of me. He has two jobs, which is the reason he has never called me up on the phone or taken me out. He is very busy. He says he cares for me a great deal, but I see him only once a day when he delivers food at my home. I don't want to rush him into anything. What do you think?
-
-
-TXT
 user = User.all.sample
 document = user.documents.create(
-    title: 'A New Romance',
+    title: "A New Romance",
     context: "Should I call him?",
     privacy: false
   )
 
-document.versions.create(content: content) 
+document.versions.create(content: "Two months ago, I met a man who seems very fond of me. He has two jobs, which is the reason he has never called me up on the phone or taken me out. He is very busy. He says he cares for me a great deal, but I see him only once a day when he delivers food at my home. I don't want to rush him into anything. What do you think?")
 
 
 
-content = <<TXT
-Dear Carolyn:
+user = User.all.sample
+document = user.documents.create(
+    title: "Long Distance Relationship",
+    context: "love and marriage",
+    privacy: false
+  )
+
+document.versions.create(content: "Dear Carolyn:
 
 I am a 33-year-old single mom with an 8-year-old son. I have sole custody of my son, but by state law I cannot move more than 60 miles away from my son's father.
 
 I've been in a wonderful four-year relationship, but he lives 360 miles away. We were together for a year before he was offered a great job and moved away. We have made our relationship work for three years while holding out hope that my son's father will allow me to move someday.
 
-Well, I'm afraid someday is never coming. Legally unable to move, I asked my boyfriend to consider moving back. He is unwilling to quit his job or even look for a good job here. We are crazy in love with each other and want nothing more than to be married and spend the rest of our lives together. But I can't live my life in a never-ending long-distance relationship, and I would like more children.
+Well, I'm afraid someday is never coming. Legally unable to move, I asked my boyfriend to consider moving back. He is unwilling to quit his job or even look for a good job here. We are crazy in love with each other and want nothing more than to be married and spend the rest of our lives together. But I can't live my life in a never-ending long-distance relationship, and I would like more children.")
 
 
-TXT
 user = User.all.sample
 document = user.documents.create(
-    title: 'Long Distance Relationship',
-    context: "Should we break up?",
-    privacy: false
-  )
-
-document.versions.create(content: content) 
-
-
-
-content = <<TXT
-Dear Carolyn:
-
-My husband loves his parents and sister but makes no effort to see them (we live in Virginia, they are in Florida). His excuses not to visit are pretty weak, like too much work, too little money, or his fear of flying, for which he has medication. I feel he is being selfish and, after nearly 30 years of marriage, I know he will regret this after Dad and Mom are gone. Should I just get over it?
-TXT
-user = User.all.sample
-document = user.documents.create(
-    title: 'Fear of Flying',
+    title: "Fear of Flying",
     context: "my husband",
     privacy: false
   )
 
-document.versions.create(content: content) 
-  
+document.versions.create(content: "Dear Carolyn:
 
-
-
+My husband loves his parents and sister but makes no effort to see them (we live in Virginia, they are in Florida). His excuses not to visit are pretty weak, like too much work, too little money, or his fear of flying, for which he has medication. I feel he is being selfish and, after nearly 30 years of marriage, I know he will regret this after Dad and Mom are gone. Should I just get over it?")
 
 
 
@@ -195,14 +168,4 @@ document.versions.create(content: content)
   comment = Version.all.sample.comments.create(body: Faker::Hacker.say_something_smart)
   User.all.sample.comments << comment
 end
-
-
-
-
-
-
-
-
-
-
 
