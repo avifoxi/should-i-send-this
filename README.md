@@ -14,7 +14,7 @@ We've all sent regrettable emails. Get feedback before you push the button!  Wit
 ![Screenshot](design-docs/shouldisendthis_screenshot_sm.png)
 
 ## Team Members
-* Alan Cohen - [Github](https://github.com/acjetnut)
+* Alan Cohen - [Github](https://github.com/alancohen)
 * Avi Fox-Rosen - [Github](https://github.com/avifoxi)
 * Yariv Kirschner - [Github](https://github.com/ykirschner)
 * Justin Lee - [Github](https://github.com/leeju)
