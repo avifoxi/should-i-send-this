@@ -21,6 +21,7 @@ class VersionsController < ApplicationController
     @version = Version.find(params[:id])
     @document = Document.find(@version.document)
     @versions = @document.versions
+    @first_version = @document.versions.first
 
     @comments = @version.comments.display_order
     @comment = @version.comments.build

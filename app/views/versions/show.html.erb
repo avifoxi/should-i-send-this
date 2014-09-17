@@ -16,7 +16,11 @@
   <% end %>
   <% if current_user == @document.user %>
       <li><%= link_to 'Write a New Version', new_document_version_path(@document) %></li>
-      <li><%= link_to 'Delete This Version', version_path, :method => :delete %></li>
+      <% if @version == @first_version %>
+        <li><%= link_to "Delete This Document", document_path(@document), :method => :delete %></li>
+      <% else %>
+        <li><%= link_to 'Delete This Version', version_path, :method => :delete %></li>
+      <% end %>
   <% end %>
 </ul>
 <br>
